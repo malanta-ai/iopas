@@ -1,0 +1,2349 @@
+{
+  "type": "bundle",
+  "id": "bundle--0c7a0de1-2872-5882-950c-d69cc694caac",
+  "objects": [
+    {
+      "type": "identity",
+      "spec_version": "2.1",
+      "id": "identity--d0fea56c-611f-54f2-a07f-a9c37da3b33c",
+      "created": "2026-04-26T07:12:46.869Z",
+      "modified": "2026-04-26T07:12:46.869Z",
+      "name": "Malanta",
+      "identity_class": "organization"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--cd0c7349-6fc0-5ebb-9c3c-1366c10d6854",
+      "created_by_ref": "identity--d0fea56c-611f-54f2-a07f-a9c37da3b33c",
+      "created": "2026-04-26T07:12:46.869Z",
+      "modified": "2026-04-26T07:12:46.869Z",
+      "name": "annaionovna.com",
+      "indicator_types": [
+        "malicious-activity"
+      ],
+      "pattern": "[domain-name:value = 'annaionovna.com']",
+      "pattern_type": "stix",
+      "pattern_version": "2.1",
+      "valid_from": "2026-04-13T16:01:00.563Z",
+      "confidence": 100,
+      "external_references": [
+        {
+          "source_name": "Source Report",
+          "url": "https://hunt.io/blog/dindoor-deno-runtime-backdoor-msi-analysis"
+        }
+      ],
+      "x_is_seed": true,
+      "x_malanta_label": "Malicious",
+      "x_malanta_lead_time_days": 7,
+      "x_malanta_probability": 1
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--04559cf9-759b-554f-96dd-8267d433a59a",
+      "created_by_ref": "identity--d0fea56c-611f-54f2-a07f-a9c37da3b33c",
+      "created": "2026-04-26T07:12:46.869Z",
+      "modified": "2026-04-26T07:12:46.869Z",
+      "name": "justtalken.com",
+      "indicator_types": [
+        "malicious-activity"
+      ],
+      "pattern": "[domain-name:value = 'justtalken.com']",
+      "pattern_type": "stix",
+      "pattern_version": "2.1",
+      "valid_from": "2026-04-09T11:01:44.62Z",
+      "confidence": 100,
+      "external_references": [
+        {
+          "source_name": "Source Report",
+          "url": "https://hunt.io/blog/dindoor-deno-runtime-backdoor-msi-analysis"
+        }
+      ],
+      "x_is_seed": true,
+      "x_malanta_label": "Malicious",
+      "x_malanta_lead_time_days": 11,
+      "x_malanta_probability": 1
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--ddc94cef-1d50-57cb-adfe-a75e1d973ecd",
+      "created_by_ref": "identity--d0fea56c-611f-54f2-a07f-a9c37da3b33c",
+      "created": "2026-04-26T07:12:46.869Z",
+      "modified": "2026-04-26T07:12:46.869Z",
+      "name": "serialmenot.com",
+      "indicator_types": [
+        "malicious-activity"
+      ],
+      "pattern": "[domain-name:value = 'serialmenot.com']",
+      "pattern_type": "stix",
+      "pattern_version": "2.1",
+      "valid_from": "2026-03-11T09:07:01.513Z",
+      "confidence": 100,
+      "external_references": [
+        {
+          "source_name": "Source Report",
+          "url": "https://hunt.io/blog/dindoor-deno-runtime-backdoor-msi-analysis"
+        }
+      ],
+      "x_is_seed": true,
+      "x_malanta_label": "Malicious",
+      "x_malanta_lead_time_days": 40,
+      "x_malanta_probability": 1
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--cf7157c7-a698-5b24-92b7-26314e78408f",
+      "created_by_ref": "identity--d0fea56c-611f-54f2-a07f-a9c37da3b33c",
+      "created": "2026-04-26T07:12:46.869Z",
+      "modified": "2026-04-26T07:12:46.869Z",
+      "name": "aeeracaspsl.site",
+      "indicator_types": [
+        "unknown"
+      ],
+      "pattern": "[domain-name:value = 'aeeracaspsl.site']",
+      "pattern_type": "stix",
+      "pattern_version": "2.1",
+      "valid_from": "2026-04-26T07:12:46.869Z",
+      "external_references": [
+        {
+          "source_name": "Source Report",
+          "url": "https://hunt.io/blog/dindoor-deno-runtime-backdoor-msi-analysis"
+        }
+      ],
+      "x_is_seed": true
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--88d2fb7f-3128-5d14-a1d7-f621645a8a97",
+      "created_by_ref": "identity--d0fea56c-611f-54f2-a07f-a9c37da3b33c",
+      "created": "2026-04-26T07:12:46.869Z",
+      "modified": "2026-04-26T07:12:46.869Z",
+      "name": "agilemast3r.duckdns.org",
+      "indicator_types": [
+        "unknown"
+      ],
+      "pattern": "[domain-name:value = 'agilemast3r.duckdns.org']",
+      "pattern_type": "stix",
+      "pattern_version": "2.1",
+      "valid_from": "2025-09-03T03:41:08.108Z",
+      "confidence": 100,
+      "external_references": [
+        {
+          "source_name": "Source Report",
+          "url": "https://hunt.io/blog/dindoor-deno-runtime-backdoor-msi-analysis"
+        }
+      ],
+      "x_is_seed": true,
+      "x_malanta_label": "Legit",
+      "x_malanta_probability": 1
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--43161ca6-27bc-5a33-849a-3d9fddf878a3",
+      "created_by_ref": "identity--d0fea56c-611f-54f2-a07f-a9c37da3b33c",
+      "created": "2026-04-26T07:12:46.869Z",
+      "modified": "2026-04-26T07:12:46.869Z",
+      "name": "bandage.healthydefinitetrunk.com",
+      "indicator_types": [
+        "unknown"
+      ],
+      "pattern": "[domain-name:value = 'bandage.healthydefinitetrunk.com']",
+      "pattern_type": "stix",
+      "pattern_version": "2.1",
+      "valid_from": "2026-04-26T07:12:46.869Z",
+      "external_references": [
+        {
+          "source_name": "Source Report",
+          "url": "https://hunt.io/blog/dindoor-deno-runtime-backdoor-msi-analysis"
+        }
+      ],
+      "x_is_seed": true
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--fe4f34c9-d0d7-5dfe-935f-213281b2b4a7",
+      "created_by_ref": "identity--d0fea56c-611f-54f2-a07f-a9c37da3b33c",
+      "created": "2026-04-26T07:12:46.869Z",
+      "modified": "2026-04-26T07:12:46.869Z",
+      "name": "bitatits.surf",
+      "indicator_types": [
+        "unknown"
+      ],
+      "pattern": "[domain-name:value = 'bitatits.surf']",
+      "pattern_type": "stix",
+      "pattern_version": "2.1",
+      "valid_from": "2026-04-26T07:12:46.869Z",
+      "external_references": [
+        {
+          "source_name": "Source Report",
+          "url": "https://hunt.io/blog/dindoor-deno-runtime-backdoor-msi-analysis"
+        }
+      ],
+      "x_is_seed": true
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--ded5e11c-3e9c-5840-a649-ebe70e4cf4d7",
+      "created_by_ref": "identity--d0fea56c-611f-54f2-a07f-a9c37da3b33c",
+      "created": "2026-04-26T07:12:46.869Z",
+      "modified": "2026-04-26T07:12:46.869Z",
+      "name": "generalnewlong.com",
+      "indicator_types": [
+        "unknown"
+      ],
+      "pattern": "[domain-name:value = 'generalnewlong.com']",
+      "pattern_type": "stix",
+      "pattern_version": "2.1",
+      "valid_from": "2026-04-26T07:12:46.869Z",
+      "external_references": [
+        {
+          "source_name": "Source Report",
+          "url": "https://hunt.io/blog/dindoor-deno-runtime-backdoor-msi-analysis"
+        }
+      ],
+      "x_is_seed": true
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--ee7ae1af-7d28-5e37-a7de-5ff596c2fe00",
+      "created_by_ref": "identity--d0fea56c-611f-54f2-a07f-a9c37da3b33c",
+      "created": "2026-04-26T07:12:46.869Z",
+      "modified": "2026-04-26T07:12:46.869Z",
+      "name": "grafana.healthydefinitetrunk.com",
+      "indicator_types": [
+        "unknown"
+      ],
+      "pattern": "[domain-name:value = 'grafana.healthydefinitetrunk.com']",
+      "pattern_type": "stix",
+      "pattern_version": "2.1",
+      "valid_from": "2026-04-26T07:12:46.869Z",
+      "external_references": [
+        {
+          "source_name": "Source Report",
+          "url": "https://hunt.io/blog/dindoor-deno-runtime-backdoor-msi-analysis"
+        }
+      ],
+      "x_is_seed": true
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--efaf896b-217d-5e1f-9bff-f400a2d639bc",
+      "created_by_ref": "identity--d0fea56c-611f-54f2-a07f-a9c37da3b33c",
+      "created": "2026-04-26T07:12:46.869Z",
+      "modified": "2026-04-26T07:12:46.869Z",
+      "name": "hngfbgfbfb.cyou",
+      "indicator_types": [
+        "unknown"
+      ],
+      "pattern": "[domain-name:value = 'hngfbgfbfb.cyou']",
+      "pattern_type": "stix",
+      "pattern_version": "2.1",
+      "valid_from": "2026-04-26T07:12:46.869Z",
+      "external_references": [
+        {
+          "source_name": "Source Report",
+          "url": "https://hunt.io/blog/dindoor-deno-runtime-backdoor-msi-analysis"
+        }
+      ],
+      "x_is_seed": true
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--225cf1c8-f7a9-59d8-be55-93c130df36ef",
+      "created_by_ref": "identity--d0fea56c-611f-54f2-a07f-a9c37da3b33c",
+      "created": "2026-04-26T07:12:46.869Z",
+      "modified": "2026-04-26T07:12:46.869Z",
+      "name": "ilspaeysoff.site",
+      "indicator_types": [
+        "unknown"
+      ],
+      "pattern": "[domain-name:value = 'ilspaeysoff.site']",
+      "pattern_type": "stix",
+      "pattern_version": "2.1",
+      "valid_from": "2026-04-26T07:12:46.869Z",
+      "external_references": [
+        {
+          "source_name": "Source Report",
+          "url": "https://hunt.io/blog/dindoor-deno-runtime-backdoor-msi-analysis"
+        }
+      ],
+      "x_is_seed": true
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--efe010db-afda-5284-903b-8be2ba3ab963",
+      "created_by_ref": "identity--d0fea56c-611f-54f2-a07f-a9c37da3b33c",
+      "created": "2026-04-26T07:12:46.869Z",
+      "modified": "2026-04-26T07:12:46.869Z",
+      "name": "ineracaspsl.site",
+      "indicator_types": [
+        "unknown"
+      ],
+      "pattern": "[domain-name:value = 'ineracaspsl.site']",
+      "pattern_type": "stix",
+      "pattern_version": "2.1",
+      "valid_from": "2026-04-26T07:12:46.869Z",
+      "external_references": [
+        {
+          "source_name": "Source Report",
+          "url": "https://hunt.io/blog/dindoor-deno-runtime-backdoor-msi-analysis"
+        }
+      ],
+      "x_is_seed": true
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--0e2333cd-d4e4-555e-b64c-f7e0ad11f3b2",
+      "created_by_ref": "identity--d0fea56c-611f-54f2-a07f-a9c37da3b33c",
+      "created": "2026-04-26T07:12:46.869Z",
+      "modified": "2026-04-26T07:12:46.869Z",
+      "name": "landmas.info",
+      "indicator_types": [
+        "unknown"
+      ],
+      "pattern": "[domain-name:value = 'landmas.info']",
+      "pattern_type": "stix",
+      "pattern_version": "2.1",
+      "valid_from": "2026-04-26T07:12:46.869Z",
+      "external_references": [
+        {
+          "source_name": "Source Report",
+          "url": "https://hunt.io/blog/dindoor-deno-runtime-backdoor-msi-analysis"
+        }
+      ],
+      "x_is_seed": true
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--16d1c437-7065-5daf-a02f-5f3b5f84d2db",
+      "created_by_ref": "identity--d0fea56c-611f-54f2-a07f-a9c37da3b33c",
+      "created": "2026-04-26T07:12:46.869Z",
+      "modified": "2026-04-26T07:12:46.869Z",
+      "name": "myspaeysoff.site",
+      "indicator_types": [
+        "unknown"
+      ],
+      "pattern": "[domain-name:value = 'myspaeysoff.site']",
+      "pattern_type": "stix",
+      "pattern_version": "2.1",
+      "valid_from": "2026-04-26T07:12:46.869Z",
+      "external_references": [
+        {
+          "source_name": "Source Report",
+          "url": "https://hunt.io/blog/dindoor-deno-runtime-backdoor-msi-analysis"
+        }
+      ],
+      "x_is_seed": true
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--9dc9bcd0-05f4-500b-9aaf-3c420a07fe5a",
+      "created_by_ref": "identity--d0fea56c-611f-54f2-a07f-a9c37da3b33c",
+      "created": "2026-04-26T07:12:46.869Z",
+      "modified": "2026-04-26T07:12:46.869Z",
+      "name": "playerdragonbike.com",
+      "indicator_types": [
+        "unknown"
+      ],
+      "pattern": "[domain-name:value = 'playerdragonbike.com']",
+      "pattern_type": "stix",
+      "pattern_version": "2.1",
+      "valid_from": "2026-04-26T07:12:46.869Z",
+      "external_references": [
+        {
+          "source_name": "Source Report",
+          "url": "https://hunt.io/blog/dindoor-deno-runtime-backdoor-msi-analysis"
+        }
+      ],
+      "x_is_seed": true
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--b7862108-9f79-53da-a23d-1573c5c0fb06",
+      "created_by_ref": "identity--d0fea56c-611f-54f2-a07f-a9c37da3b33c",
+      "created": "2026-04-26T07:12:46.869Z",
+      "modified": "2026-04-26T07:12:46.869Z",
+      "name": "surgery.healthydefinitetrunk.com",
+      "indicator_types": [
+        "unknown"
+      ],
+      "pattern": "[domain-name:value = 'surgery.healthydefinitetrunk.com']",
+      "pattern_type": "stix",
+      "pattern_version": "2.1",
+      "valid_from": "2026-04-26T07:12:46.869Z",
+      "external_references": [
+        {
+          "source_name": "Source Report",
+          "url": "https://hunt.io/blog/dindoor-deno-runtime-backdoor-msi-analysis"
+        }
+      ],
+      "x_is_seed": true
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--75946327-8038-5ec3-9bec-38860e87a60d",
+      "created_by_ref": "identity--d0fea56c-611f-54f2-a07f-a9c37da3b33c",
+      "created": "2026-04-26T07:12:46.869Z",
+      "modified": "2026-04-26T07:12:46.869Z",
+      "name": "weaplink.com",
+      "indicator_types": [
+        "unknown"
+      ],
+      "pattern": "[domain-name:value = 'weaplink.com']",
+      "pattern_type": "stix",
+      "pattern_version": "2.1",
+      "valid_from": "2026-04-26T07:12:46.869Z",
+      "external_references": [
+        {
+          "source_name": "Source Report",
+          "url": "https://hunt.io/blog/dindoor-deno-runtime-backdoor-msi-analysis"
+        }
+      ],
+      "x_is_seed": true
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--0f25337c-05e8-55f3-a5ed-4ccd9e3e7577",
+      "created_by_ref": "identity--d0fea56c-611f-54f2-a07f-a9c37da3b33c",
+      "created": "2026-04-26T07:12:46.869Z",
+      "modified": "2026-04-26T07:12:46.869Z",
+      "name": "138.124.240.76",
+      "indicator_types": [
+        "unknown"
+      ],
+      "pattern": "[ipv4-addr:value = '138.124.240.76']",
+      "pattern_type": "stix",
+      "pattern_version": "2.1",
+      "valid_from": "2026-04-26T07:12:46.869Z",
+      "external_references": [
+        {
+          "source_name": "Source Report",
+          "url": "https://hunt.io/blog/dindoor-deno-runtime-backdoor-msi-analysis"
+        }
+      ],
+      "x_is_seed": true
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--fdfeb577-3c33-5315-8246-2693869597a4",
+      "created_by_ref": "identity--d0fea56c-611f-54f2-a07f-a9c37da3b33c",
+      "created": "2026-04-26T07:12:46.869Z",
+      "modified": "2026-04-26T07:12:46.869Z",
+      "name": "138.124.240.77",
+      "indicator_types": [
+        "unknown"
+      ],
+      "pattern": "[ipv4-addr:value = '138.124.240.77']",
+      "pattern_type": "stix",
+      "pattern_version": "2.1",
+      "valid_from": "2026-04-26T07:12:46.869Z",
+      "external_references": [
+        {
+          "source_name": "Source Report",
+          "url": "https://hunt.io/blog/dindoor-deno-runtime-backdoor-msi-analysis"
+        }
+      ],
+      "x_is_seed": true
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--7aa78c34-f5ba-5506-a989-008de203d837",
+      "created_by_ref": "identity--d0fea56c-611f-54f2-a07f-a9c37da3b33c",
+      "created": "2026-04-26T07:12:46.869Z",
+      "modified": "2026-04-26T07:12:46.869Z",
+      "name": "140.82.18.48",
+      "indicator_types": [
+        "unknown"
+      ],
+      "pattern": "[ipv4-addr:value = '140.82.18.48']",
+      "pattern_type": "stix",
+      "pattern_version": "2.1",
+      "valid_from": "2026-04-26T07:12:46.869Z",
+      "external_references": [
+        {
+          "source_name": "Source Report",
+          "url": "https://hunt.io/blog/dindoor-deno-runtime-backdoor-msi-analysis"
+        }
+      ],
+      "x_attack_infra": true,
+      "x_is_seed": true
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--714efe90-da46-510c-86bf-6f1179229d6a",
+      "created_by_ref": "identity--d0fea56c-611f-54f2-a07f-a9c37da3b33c",
+      "created": "2026-04-26T07:12:46.869Z",
+      "modified": "2026-04-26T07:12:46.869Z",
+      "name": "146.19.254.84",
+      "indicator_types": [
+        "unknown"
+      ],
+      "pattern": "[ipv4-addr:value = '146.19.254.84']",
+      "pattern_type": "stix",
+      "pattern_version": "2.1",
+      "valid_from": "2026-04-26T07:12:46.869Z",
+      "external_references": [
+        {
+          "source_name": "Source Report",
+          "url": "https://hunt.io/blog/dindoor-deno-runtime-backdoor-msi-analysis"
+        }
+      ],
+      "x_is_seed": true
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--1005736d-2900-56ad-bed7-92ded3f33bcb",
+      "created_by_ref": "identity--d0fea56c-611f-54f2-a07f-a9c37da3b33c",
+      "created": "2026-04-26T07:12:46.869Z",
+      "modified": "2026-04-26T07:12:46.869Z",
+      "name": "178.104.137.180",
+      "indicator_types": [
+        "unknown"
+      ],
+      "pattern": "[ipv4-addr:value = '178.104.137.180']",
+      "pattern_type": "stix",
+      "pattern_version": "2.1",
+      "valid_from": "2026-04-26T07:12:46.869Z",
+      "external_references": [
+        {
+          "source_name": "Source Report",
+          "url": "https://hunt.io/blog/dindoor-deno-runtime-backdoor-msi-analysis"
+        }
+      ],
+      "x_is_seed": true
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--6d0d7c48-0bef-587f-b17d-972b33076182",
+      "created_by_ref": "identity--d0fea56c-611f-54f2-a07f-a9c37da3b33c",
+      "created": "2026-04-26T07:12:46.869Z",
+      "modified": "2026-04-26T07:12:46.869Z",
+      "name": "178.16.52.191",
+      "indicator_types": [
+        "unknown"
+      ],
+      "pattern": "[ipv4-addr:value = '178.16.52.191']",
+      "pattern_type": "stix",
+      "pattern_version": "2.1",
+      "valid_from": "2026-04-26T07:12:46.869Z",
+      "external_references": [
+        {
+          "source_name": "Source Report",
+          "url": "https://hunt.io/blog/dindoor-deno-runtime-backdoor-msi-analysis"
+        }
+      ],
+      "x_is_seed": true
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--42494525-c778-5766-9af8-4363ad0e4310",
+      "created_by_ref": "identity--d0fea56c-611f-54f2-a07f-a9c37da3b33c",
+      "created": "2026-04-26T07:12:46.869Z",
+      "modified": "2026-04-26T07:12:46.869Z",
+      "name": "185.218.19.117",
+      "indicator_types": [
+        "unknown"
+      ],
+      "pattern": "[ipv4-addr:value = '185.218.19.117']",
+      "pattern_type": "stix",
+      "pattern_version": "2.1",
+      "valid_from": "2026-04-26T07:12:46.869Z",
+      "external_references": [
+        {
+          "source_name": "Source Report",
+          "url": "https://hunt.io/blog/dindoor-deno-runtime-backdoor-msi-analysis"
+        }
+      ],
+      "x_is_seed": true
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--fa1fd611-4901-5327-ab1f-11e3d6c00f21",
+      "created_by_ref": "identity--d0fea56c-611f-54f2-a07f-a9c37da3b33c",
+      "created": "2026-04-26T07:12:46.869Z",
+      "modified": "2026-04-26T07:12:46.869Z",
+      "name": "192.109.200.151",
+      "indicator_types": [
+        "unknown"
+      ],
+      "pattern": "[ipv4-addr:value = '192.109.200.151']",
+      "pattern_type": "stix",
+      "pattern_version": "2.1",
+      "valid_from": "2026-04-26T07:12:46.869Z",
+      "external_references": [
+        {
+          "source_name": "Source Report",
+          "url": "https://hunt.io/blog/dindoor-deno-runtime-backdoor-msi-analysis"
+        }
+      ],
+      "x_attack_infra": true,
+      "x_is_seed": true
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--62c49877-993a-5413-8a80-db8ea43cd3ec",
+      "created_by_ref": "identity--d0fea56c-611f-54f2-a07f-a9c37da3b33c",
+      "created": "2026-04-26T07:12:46.869Z",
+      "modified": "2026-04-26T07:12:46.869Z",
+      "name": "193.233.82.43",
+      "indicator_types": [
+        "unknown"
+      ],
+      "pattern": "[ipv4-addr:value = '193.233.82.43']",
+      "pattern_type": "stix",
+      "pattern_version": "2.1",
+      "valid_from": "2026-04-26T07:12:46.869Z",
+      "external_references": [
+        {
+          "source_name": "Source Report",
+          "url": "https://hunt.io/blog/dindoor-deno-runtime-backdoor-msi-analysis"
+        }
+      ],
+      "x_is_seed": true
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--43c24f77-f714-55b8-9bce-6e32eac12ac4",
+      "created_by_ref": "identity--d0fea56c-611f-54f2-a07f-a9c37da3b33c",
+      "created": "2026-04-26T07:12:46.869Z",
+      "modified": "2026-04-26T07:12:46.869Z",
+      "name": "193.24.123.25",
+      "indicator_types": [
+        "unknown"
+      ],
+      "pattern": "[ipv4-addr:value = '193.24.123.25']",
+      "pattern_type": "stix",
+      "pattern_version": "2.1",
+      "valid_from": "2026-04-26T07:12:46.869Z",
+      "external_references": [
+        {
+          "source_name": "Source Report",
+          "url": "https://hunt.io/blog/dindoor-deno-runtime-backdoor-msi-analysis"
+        }
+      ],
+      "x_is_seed": true
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--9d705491-706d-57a7-af43-4abc01f72105",
+      "created_by_ref": "identity--d0fea56c-611f-54f2-a07f-a9c37da3b33c",
+      "created": "2026-04-26T07:12:46.869Z",
+      "modified": "2026-04-26T07:12:46.869Z",
+      "name": "194.48.141.192",
+      "indicator_types": [
+        "unknown"
+      ],
+      "pattern": "[ipv4-addr:value = '194.48.141.192']",
+      "pattern_type": "stix",
+      "pattern_version": "2.1",
+      "valid_from": "2026-04-26T07:12:46.869Z",
+      "external_references": [
+        {
+          "source_name": "Source Report",
+          "url": "https://hunt.io/blog/dindoor-deno-runtime-backdoor-msi-analysis"
+        }
+      ],
+      "x_is_seed": true
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--360e3006-e188-58f7-9027-d31c8cdc91d7",
+      "created_by_ref": "identity--d0fea56c-611f-54f2-a07f-a9c37da3b33c",
+      "created": "2026-04-26T07:12:46.869Z",
+      "modified": "2026-04-26T07:12:46.869Z",
+      "name": "199.217.99.189",
+      "indicator_types": [
+        "unknown"
+      ],
+      "pattern": "[ipv4-addr:value = '199.217.99.189']",
+      "pattern_type": "stix",
+      "pattern_version": "2.1",
+      "valid_from": "2026-04-26T07:12:46.869Z",
+      "external_references": [
+        {
+          "source_name": "Source Report",
+          "url": "https://hunt.io/blog/dindoor-deno-runtime-backdoor-msi-analysis"
+        }
+      ],
+      "x_is_seed": true
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--5850a3e9-c75b-5228-89e4-66661b34377e",
+      "created_by_ref": "identity--d0fea56c-611f-54f2-a07f-a9c37da3b33c",
+      "created": "2026-04-26T07:12:46.869Z",
+      "modified": "2026-04-26T07:12:46.869Z",
+      "name": "199.91.220.142",
+      "indicator_types": [
+        "unknown"
+      ],
+      "pattern": "[ipv4-addr:value = '199.91.220.142']",
+      "pattern_type": "stix",
+      "pattern_version": "2.1",
+      "valid_from": "2026-04-26T07:12:46.869Z",
+      "external_references": [
+        {
+          "source_name": "Source Report",
+          "url": "https://hunt.io/blog/dindoor-deno-runtime-backdoor-msi-analysis"
+        }
+      ],
+      "x_is_seed": true
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--f298e4e3-7b16-5254-bd62-11942807e669",
+      "created_by_ref": "identity--d0fea56c-611f-54f2-a07f-a9c37da3b33c",
+      "created": "2026-04-26T07:12:46.869Z",
+      "modified": "2026-04-26T07:12:46.869Z",
+      "name": "199.91.220.216",
+      "indicator_types": [
+        "unknown"
+      ],
+      "pattern": "[ipv4-addr:value = '199.91.220.216']",
+      "pattern_type": "stix",
+      "pattern_version": "2.1",
+      "valid_from": "2026-04-26T07:12:46.869Z",
+      "external_references": [
+        {
+          "source_name": "Source Report",
+          "url": "https://hunt.io/blog/dindoor-deno-runtime-backdoor-msi-analysis"
+        }
+      ],
+      "x_is_seed": true
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--eefe276d-875a-575e-9377-6ba6b6957782",
+      "created_by_ref": "identity--d0fea56c-611f-54f2-a07f-a9c37da3b33c",
+      "created": "2026-04-26T07:12:46.869Z",
+      "modified": "2026-04-26T07:12:46.869Z",
+      "name": "2.26.117.169",
+      "indicator_types": [
+        "unknown"
+      ],
+      "pattern": "[ipv4-addr:value = '2.26.117.169']",
+      "pattern_type": "stix",
+      "pattern_version": "2.1",
+      "valid_from": "2026-04-26T07:12:46.869Z",
+      "external_references": [
+        {
+          "source_name": "Source Report",
+          "url": "https://hunt.io/blog/dindoor-deno-runtime-backdoor-msi-analysis"
+        }
+      ],
+      "x_is_seed": true
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--c9f557de-877e-57ea-ab67-3c4612363041",
+      "created_by_ref": "identity--d0fea56c-611f-54f2-a07f-a9c37da3b33c",
+      "created": "2026-04-26T07:12:46.869Z",
+      "modified": "2026-04-26T07:12:46.869Z",
+      "name": "2.27.122.16",
+      "indicator_types": [
+        "unknown"
+      ],
+      "pattern": "[ipv4-addr:value = '2.27.122.16']",
+      "pattern_type": "stix",
+      "pattern_version": "2.1",
+      "valid_from": "2026-04-26T07:12:46.869Z",
+      "external_references": [
+        {
+          "source_name": "Source Report",
+          "url": "https://hunt.io/blog/dindoor-deno-runtime-backdoor-msi-analysis"
+        }
+      ],
+      "x_is_seed": true
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--e6bd22a5-be46-5de6-a9c2-61ba8815cbf9",
+      "created_by_ref": "identity--d0fea56c-611f-54f2-a07f-a9c37da3b33c",
+      "created": "2026-04-26T07:12:46.869Z",
+      "modified": "2026-04-26T07:12:46.869Z",
+      "name": "209.99.189.170",
+      "indicator_types": [
+        "unknown"
+      ],
+      "pattern": "[ipv4-addr:value = '209.99.189.170']",
+      "pattern_type": "stix",
+      "pattern_version": "2.1",
+      "valid_from": "2026-04-26T07:12:46.869Z",
+      "external_references": [
+        {
+          "source_name": "Source Report",
+          "url": "https://hunt.io/blog/dindoor-deno-runtime-backdoor-msi-analysis"
+        }
+      ],
+      "x_is_seed": true
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--b1dba5f3-43a4-5ba6-929e-2614fc59ee8f",
+      "created_by_ref": "identity--d0fea56c-611f-54f2-a07f-a9c37da3b33c",
+      "created": "2026-04-26T07:12:46.869Z",
+      "modified": "2026-04-26T07:12:46.869Z",
+      "name": "45.135.180.200",
+      "indicator_types": [
+        "unknown"
+      ],
+      "pattern": "[ipv4-addr:value = '45.135.180.200']",
+      "pattern_type": "stix",
+      "pattern_version": "2.1",
+      "valid_from": "2026-04-26T07:12:46.869Z",
+      "external_references": [
+        {
+          "source_name": "Source Report",
+          "url": "https://hunt.io/blog/dindoor-deno-runtime-backdoor-msi-analysis"
+        }
+      ],
+      "x_is_seed": true
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--feed9cbd-7ec1-59d6-9969-623cb7271aa7",
+      "created_by_ref": "identity--d0fea56c-611f-54f2-a07f-a9c37da3b33c",
+      "created": "2026-04-26T07:12:46.869Z",
+      "modified": "2026-04-26T07:12:46.869Z",
+      "name": "45.151.106.88",
+      "indicator_types": [
+        "unknown"
+      ],
+      "pattern": "[ipv4-addr:value = '45.151.106.88']",
+      "pattern_type": "stix",
+      "pattern_version": "2.1",
+      "valid_from": "2026-04-26T07:12:46.869Z",
+      "external_references": [
+        {
+          "source_name": "Source Report",
+          "url": "https://hunt.io/blog/dindoor-deno-runtime-backdoor-msi-analysis"
+        }
+      ],
+      "x_is_seed": true
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--d41fe336-4214-5ac0-b597-25a644c87f8f",
+      "created_by_ref": "identity--d0fea56c-611f-54f2-a07f-a9c37da3b33c",
+      "created": "2026-04-26T07:12:46.869Z",
+      "modified": "2026-04-26T07:12:46.869Z",
+      "name": "85.192.27.152",
+      "indicator_types": [
+        "unknown"
+      ],
+      "pattern": "[ipv4-addr:value = '85.192.27.152']",
+      "pattern_type": "stix",
+      "pattern_version": "2.1",
+      "valid_from": "2026-04-26T07:12:46.869Z",
+      "external_references": [
+        {
+          "source_name": "Source Report",
+          "url": "https://hunt.io/blog/dindoor-deno-runtime-backdoor-msi-analysis"
+        }
+      ],
+      "x_is_seed": true
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--40b746af-04af-54ae-86de-7c1a2279adaf",
+      "created_by_ref": "identity--d0fea56c-611f-54f2-a07f-a9c37da3b33c",
+      "created": "2026-04-26T07:12:46.869Z",
+      "modified": "2026-04-26T07:12:46.869Z",
+      "name": "coinbase.com.lv",
+      "description": "140.82.18.48 (seed) → coinbase.com.lv (IP reverse)",
+      "indicator_types": [
+        "malicious-activity"
+      ],
+      "pattern": "[domain-name:value = 'coinbase.com.lv']",
+      "pattern_type": "stix",
+      "pattern_version": "2.1",
+      "valid_from": "2025-12-26T12:43:08.706Z",
+      "confidence": 98,
+      "external_references": [
+        {
+          "source_name": "Source Report",
+          "url": "https://hunt.io/blog/dindoor-deno-runtime-backdoor-msi-analysis"
+        }
+      ],
+      "x_attack_infra": true,
+      "x_discovery_path": "140.82.18.48 (seed) → coinbase.com.lv (IP reverse)",
+      "x_hop_distance": 1,
+      "x_malanta_label": "Malicious",
+      "x_malanta_lead_time_days": 115,
+      "x_malanta_probability": 0.9885,
+      "x_pivot_distance": 0.09,
+      "x_proximity_band": "VeryClose",
+      "x_relevance_band": "Medium",
+      "x_relevance_factors": [
+        "cluster_link",
+        "shared_asn"
+      ],
+      "x_seed_indicator": "140.82.18.48",
+      "x_update_date": "2025-12-26T12:43:08.706Z",
+      "x_weighted_distance": 1.0
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--472725a8-f972-593c-af59-9094698da060",
+      "created_by_ref": "identity--d0fea56c-611f-54f2-a07f-a9c37da3b33c",
+      "created": "2026-04-26T07:12:46.869Z",
+      "modified": "2026-04-26T07:12:46.869Z",
+      "name": "aespaeysoff.site",
+      "description": "193.24.123.25 (seed) → aespaeysoff.site (IP reverse)",
+      "indicator_types": [
+        "unknown"
+      ],
+      "pattern": "[domain-name:value = 'aespaeysoff.site']",
+      "pattern_type": "stix",
+      "pattern_version": "2.1",
+      "valid_from": "2026-04-26T07:12:46.869Z",
+      "external_references": [
+        {
+          "source_name": "Source Report",
+          "url": "https://hunt.io/blog/dindoor-deno-runtime-backdoor-msi-analysis"
+        }
+      ],
+      "x_discovery_path": "193.24.123.25 (seed) → aespaeysoff.site (IP reverse)",
+      "x_hop_distance": 1,
+      "x_pivot_distance": 0.09,
+      "x_proximity_band": "VeryClose",
+      "x_relevance_band": "Medium",
+      "x_relevance_factors": [
+        "shared_ip",
+        "shared_ns",
+        "shared_asn",
+        "lexical_similarity"
+      ],
+      "x_seed_indicator": "193.24.123.25",
+      "x_weighted_distance": 1.0
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--c59df8fc-8b28-5ed1-a6e6-41899a257f91",
+      "created_by_ref": "identity--d0fea56c-611f-54f2-a07f-a9c37da3b33c",
+      "created": "2026-04-26T07:12:46.869Z",
+      "modified": "2026-04-26T07:12:46.869Z",
+      "name": "geralnewlong.com",
+      "description": "192.109.200.151 (seed) → Cluster 59EAED30-B09 → geralnewlong.com",
+      "indicator_types": [
+        "malicious-activity"
+      ],
+      "pattern": "[domain-name:value = 'geralnewlong.com']",
+      "pattern_type": "stix",
+      "pattern_version": "2.1",
+      "valid_from": "2026-04-09T11:00:24.903Z",
+      "confidence": 100,
+      "external_references": [
+        {
+          "source_name": "Source Report",
+          "url": "https://hunt.io/blog/dindoor-deno-runtime-backdoor-msi-analysis"
+        }
+      ],
+      "x_attack_infra": true,
+      "x_discovery_path": "192.109.200.151 (seed) → Cluster 59EAED30-B09 → geralnewlong.com",
+      "x_hop_distance": 1,
+      "x_malanta_label": "Malicious",
+      "x_malanta_lead_time_days": 11,
+      "x_malanta_probability": 1,
+      "x_pivot_distance": 0.09,
+      "x_proximity_band": "VeryClose",
+      "x_relevance_band": "Medium",
+      "x_relevance_factors": [
+        "cluster_link"
+      ],
+      "x_seed_indicator": "192.109.200.151",
+      "x_update_date": "2026-04-09T11:00:24.903Z",
+      "x_weighted_distance": 1.0
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--1f961e94-420e-5dd9-8d3c-40bc96758194",
+      "created_by_ref": "identity--d0fea56c-611f-54f2-a07f-a9c37da3b33c",
+      "created": "2026-04-26T07:12:46.869Z",
+      "modified": "2026-04-26T07:12:46.869Z",
+      "name": "ileracaspsl.site",
+      "description": "193.24.123.25 (seed) → ileracaspsl.site (IP reverse)",
+      "indicator_types": [
+        "unknown"
+      ],
+      "pattern": "[domain-name:value = 'ileracaspsl.site']",
+      "pattern_type": "stix",
+      "pattern_version": "2.1",
+      "valid_from": "2026-04-26T07:12:46.869Z",
+      "external_references": [
+        {
+          "source_name": "Source Report",
+          "url": "https://hunt.io/blog/dindoor-deno-runtime-backdoor-msi-analysis"
+        }
+      ],
+      "x_discovery_path": "193.24.123.25 (seed) → ileracaspsl.site (IP reverse)",
+      "x_hop_distance": 1,
+      "x_pivot_distance": 0.09,
+      "x_proximity_band": "VeryClose",
+      "x_relevance_band": "Medium",
+      "x_relevance_factors": [
+        "shared_ip",
+        "shared_ns",
+        "shared_asn",
+        "lexical_similarity"
+      ],
+      "x_seed_indicator": "193.24.123.25",
+      "x_weighted_distance": 1.0
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--8a2051a7-e7b7-5a33-9643-743538fa368a",
+      "created_by_ref": "identity--d0fea56c-611f-54f2-a07f-a9c37da3b33c",
+      "created": "2026-04-26T07:12:46.869Z",
+      "modified": "2026-04-26T07:12:46.869Z",
+      "name": "inspaeysoff.site",
+      "description": "193.24.123.25 (seed) → inspaeysoff.site (IP reverse)",
+      "indicator_types": [
+        "unknown"
+      ],
+      "pattern": "[domain-name:value = 'inspaeysoff.site']",
+      "pattern_type": "stix",
+      "pattern_version": "2.1",
+      "valid_from": "2026-04-26T07:12:46.869Z",
+      "external_references": [
+        {
+          "source_name": "Source Report",
+          "url": "https://hunt.io/blog/dindoor-deno-runtime-backdoor-msi-analysis"
+        }
+      ],
+      "x_discovery_path": "193.24.123.25 (seed) → inspaeysoff.site (IP reverse)",
+      "x_hop_distance": 1,
+      "x_pivot_distance": 0.09,
+      "x_proximity_band": "VeryClose",
+      "x_relevance_band": "Medium",
+      "x_relevance_factors": [
+        "shared_ip",
+        "shared_ns",
+        "shared_asn",
+        "lexical_similarity"
+      ],
+      "x_seed_indicator": "193.24.123.25",
+      "x_weighted_distance": 1.0
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--340cced6-6ef7-5ed5-82a9-51ac9cfa3f3a",
+      "created_by_ref": "identity--d0fea56c-611f-54f2-a07f-a9c37da3b33c",
+      "created": "2026-04-26T07:12:46.869Z",
+      "modified": "2026-04-26T07:12:46.869Z",
+      "name": "myeracaspsl.site",
+      "description": "193.24.123.25 (seed) → myeracaspsl.site (IP reverse)",
+      "indicator_types": [
+        "unknown"
+      ],
+      "pattern": "[domain-name:value = 'myeracaspsl.site']",
+      "pattern_type": "stix",
+      "pattern_version": "2.1",
+      "valid_from": "2026-04-26T07:12:46.869Z",
+      "external_references": [
+        {
+          "source_name": "Source Report",
+          "url": "https://hunt.io/blog/dindoor-deno-runtime-backdoor-msi-analysis"
+        }
+      ],
+      "x_discovery_path": "193.24.123.25 (seed) → myeracaspsl.site (IP reverse)",
+      "x_hop_distance": 1,
+      "x_pivot_distance": 0.09,
+      "x_proximity_band": "VeryClose",
+      "x_relevance_band": "Medium",
+      "x_relevance_factors": [
+        "shared_ip",
+        "shared_ns",
+        "shared_asn",
+        "lexical_similarity"
+      ],
+      "x_seed_indicator": "193.24.123.25",
+      "x_weighted_distance": 1.0
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--e04e48e3-a2e8-5231-ab01-60b46a77ef84",
+      "created_by_ref": "identity--d0fea56c-611f-54f2-a07f-a9c37da3b33c",
+      "created": "2026-04-26T07:12:46.869Z",
+      "modified": "2026-04-26T07:12:46.869Z",
+      "name": "178.16.52.64",
+      "description": "178.16.52.191 (seed; matched via 178.16.52.64) → SecWiki/linux-kernel-exploits (flagged by urlhaus) → Gandalf-ocinzento/C2-Tracker (pivot via fork_network: Gandalf-ocinzento) → 178.16.52.64 (/24 subnet match)",
+      "indicator_types": [
+        "unknown"
+      ],
+      "pattern": "[ipv4-addr:value = '178.16.52.64']",
+      "pattern_type": "stix",
+      "pattern_version": "2.1",
+      "valid_from": "2026-04-26T07:12:46.869Z",
+      "confidence": 80,
+      "external_references": [
+        {
+          "source_name": "Source Report",
+          "url": "https://hunt.io/blog/dindoor-deno-runtime-backdoor-msi-analysis"
+        }
+      ],
+      "x_attack_infra": true,
+      "x_discovery_path": "178.16.52.191 (seed; matched via 178.16.52.64) → SecWiki/linux-kernel-exploits (flagged by urlhaus) → Gandalf-ocinzento/C2-Tracker (pivot via fork_network: Gandalf-ocinzento) → 178.16.52.64 (/24 subnet match)",
+      "x_hop_distance": 1,
+      "x_pivot_distance": 0.21,
+      "x_proximity_band": "Close",
+      "x_relevance_band": "Low",
+      "x_relevance_factors": [
+        "cluster_link",
+        "repo_evidence",
+        "shared_asn"
+      ],
+      "x_seed_indicator": "178.16.52.191",
+      "x_weighted_distance": 1.5
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--54e5044b-67bd-5352-904a-24640b08f213",
+      "created_by_ref": "identity--d0fea56c-611f-54f2-a07f-a9c37da3b33c",
+      "created": "2026-04-26T07:12:46.869Z",
+      "modified": "2026-04-26T07:12:46.869Z",
+      "name": "193.24.123.84",
+      "description": "193.24.123.25 (seed; matched via 193.24.123.84) → pr0xylife/DarkGate (flagged by urlhaus) → MikhailKasimov/validin-phish-feed (pivot via fork_network: MikhailKasimov) → 193.24.123.84 (/24 subnet match)",
+      "indicator_types": [
+        "unknown"
+      ],
+      "pattern": "[ipv4-addr:value = '193.24.123.84']",
+      "pattern_type": "stix",
+      "pattern_version": "2.1",
+      "valid_from": "2026-04-26T07:12:46.869Z",
+      "confidence": 80,
+      "external_references": [
+        {
+          "source_name": "Source Report",
+          "url": "https://hunt.io/blog/dindoor-deno-runtime-backdoor-msi-analysis"
+        }
+      ],
+      "x_attack_infra": true,
+      "x_discovery_path": "193.24.123.25 (seed; matched via 193.24.123.84) → pr0xylife/DarkGate (flagged by urlhaus) → MikhailKasimov/validin-phish-feed (pivot via fork_network: MikhailKasimov) → 193.24.123.84 (/24 subnet match)",
+      "x_hop_distance": 1,
+      "x_pivot_distance": 0.21,
+      "x_proximity_band": "Close",
+      "x_relevance_band": "Low",
+      "x_relevance_factors": [
+        "cluster_link",
+        "repo_evidence",
+        "shared_asn"
+      ],
+      "x_seed_indicator": "193.24.123.25",
+      "x_weighted_distance": 1.5
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--cb7e2103-1810-5b97-9301-4ae4493a3a47",
+      "created_by_ref": "identity--d0fea56c-611f-54f2-a07f-a9c37da3b33c",
+      "created": "2026-04-26T07:12:46.869Z",
+      "modified": "2026-04-26T07:12:46.869Z",
+      "name": "klikzonewyr.com",
+      "description": "199.217.99.189 (seed) → klikzonewyr.com (IP reverse)",
+      "indicator_types": [
+        "unknown"
+      ],
+      "pattern": "[domain-name:value = 'klikzonewyr.com']",
+      "pattern_type": "stix",
+      "pattern_version": "2.1",
+      "valid_from": "2026-04-26T07:12:46.869Z",
+      "external_references": [
+        {
+          "source_name": "Source Report",
+          "url": "https://hunt.io/blog/dindoor-deno-runtime-backdoor-msi-analysis"
+        }
+      ],
+      "x_discovery_path": "199.217.99.189 (seed) → klikzonewyr.com (IP reverse)",
+      "x_hop_distance": 1,
+      "x_pivot_distance": 0.09,
+      "x_proximity_band": "VeryClose",
+      "x_relevance_band": "Low",
+      "x_relevance_factors": [
+        "shared_ip",
+        "shared_asn"
+      ],
+      "x_seed_indicator": "199.217.99.189",
+      "x_weighted_distance": 1.0
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--ed428c3c-cc06-50f0-a97c-93de9febcc4c",
+      "created_by_ref": "identity--d0fea56c-611f-54f2-a07f-a9c37da3b33c",
+      "created": "2026-04-26T07:12:46.869Z",
+      "modified": "2026-04-26T07:12:46.869Z",
+      "name": "utka.click",
+      "description": "45.135.180.200 (seed) → utka.click (IP reverse)",
+      "indicator_types": [
+        "unknown"
+      ],
+      "pattern": "[domain-name:value = 'utka.click']",
+      "pattern_type": "stix",
+      "pattern_version": "2.1",
+      "valid_from": "2026-04-26T07:12:46.869Z",
+      "external_references": [
+        {
+          "source_name": "Source Report",
+          "url": "https://hunt.io/blog/dindoor-deno-runtime-backdoor-msi-analysis"
+        }
+      ],
+      "x_discovery_path": "45.135.180.200 (seed) → utka.click (IP reverse)",
+      "x_hop_distance": 1,
+      "x_pivot_distance": 0.09,
+      "x_proximity_band": "VeryClose",
+      "x_relevance_band": "Low",
+      "x_relevance_factors": [
+        "shared_ip",
+        "shared_asn"
+      ],
+      "x_seed_indicator": "45.135.180.200",
+      "x_weighted_distance": 1.0
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--33bce55c-4817-5a72-8c7b-9a43094ec738",
+      "created_by_ref": "identity--d0fea56c-611f-54f2-a07f-a9c37da3b33c",
+      "created": "2026-04-26T07:12:46.869Z",
+      "modified": "2026-04-26T07:12:46.869Z",
+      "name": "bubuklaysdertolitodas.com",
+      "description": "178.16.52.191 (seed) → 178.16.52.64 (code repo) → Cluster 38F86DE0-6FC → bubuklaysdertolitodas.com",
+      "indicator_types": [
+        "malicious-activity"
+      ],
+      "pattern": "[domain-name:value = 'bubuklaysdertolitodas.com']",
+      "pattern_type": "stix",
+      "pattern_version": "2.1",
+      "valid_from": "2025-10-29T07:35:28.29Z",
+      "confidence": 100,
+      "external_references": [
+        {
+          "source_name": "Source Report",
+          "url": "https://hunt.io/blog/dindoor-deno-runtime-backdoor-msi-analysis"
+        }
+      ],
+      "x_attack_infra": true,
+      "x_discovery_path": "178.16.52.191 (seed) → 178.16.52.64 (code repo) → Cluster 38F86DE0-6FC → bubuklaysdertolitodas.com",
+      "x_hop_distance": 2,
+      "x_malanta_label": "Malicious",
+      "x_malanta_lead_time_days": 173,
+      "x_malanta_probability": 1,
+      "x_pivot_distance": 0.32,
+      "x_proximity_band": "Close",
+      "x_relevance_band": "Low",
+      "x_relevance_factors": [
+        "cluster_link"
+      ],
+      "x_seed_indicator": "178.16.52.191",
+      "x_update_date": "2025-10-29T07:35:28.290Z",
+      "x_weighted_distance": 2.0
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--7ff94077-c205-5bd7-a6d4-6f7af47111b3",
+      "created_by_ref": "identity--d0fea56c-611f-54f2-a07f-a9c37da3b33c",
+      "created": "2026-04-26T07:12:46.869Z",
+      "modified": "2026-04-26T07:12:46.869Z",
+      "name": "verification-stokr.io",
+      "description": "193.24.123.25 (seed) → 193.24.123.84 (code repo) → Cluster E8120272-B5B → verification-stokr.io",
+      "indicator_types": [
+        "malicious-activity"
+      ],
+      "pattern": "[domain-name:value = 'verification-stokr.io']",
+      "pattern_type": "stix",
+      "pattern_version": "2.1",
+      "valid_from": "2026-01-13T08:02:38.91Z",
+      "confidence": 98,
+      "external_references": [
+        {
+          "source_name": "Source Report",
+          "url": "https://hunt.io/blog/dindoor-deno-runtime-backdoor-msi-analysis"
+        }
+      ],
+      "x_attack_infra": true,
+      "x_discovery_path": "193.24.123.25 (seed) → 193.24.123.84 (code repo) → Cluster E8120272-B5B → verification-stokr.io",
+      "x_hop_distance": 2,
+      "x_malanta_label": "Malicious",
+      "x_malanta_lead_time_days": 97,
+      "x_malanta_probability": 0.9885,
+      "x_pivot_distance": 0.32,
+      "x_proximity_band": "Close",
+      "x_relevance_band": "Low",
+      "x_relevance_factors": [
+        "cluster_link"
+      ],
+      "x_seed_indicator": "193.24.123.25",
+      "x_update_date": "2026-01-13T08:02:38.910Z",
+      "x_weighted_distance": 2.0
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--734147cf-801f-5a40-865c-d195d68042d6",
+      "created_by_ref": "identity--d0fea56c-611f-54f2-a07f-a9c37da3b33c",
+      "created": "2026-04-26T07:12:46.869Z",
+      "modified": "2026-04-26T07:12:46.869Z",
+      "name": "146.19.254.101",
+      "description": "146.19.254.84 (seed; matched via 146.19.254.101) → VolkanSah/Auto-Proxy-Fetcher (flagged by urlhaus) → infdevv/Composite-Autoproxy (pivot via fork_network: fork:VolkanSah/Auto-Proxy-Fetcher) → 146.19.254.101 (/24 subnet match)",
+      "indicator_types": [
+        "unknown"
+      ],
+      "pattern": "[ipv4-addr:value = '146.19.254.101']",
+      "pattern_type": "stix",
+      "pattern_version": "2.1",
+      "valid_from": "2026-04-26T07:12:46.869Z",
+      "confidence": 80,
+      "external_references": [
+        {
+          "source_name": "Source Report",
+          "url": "https://hunt.io/blog/dindoor-deno-runtime-backdoor-msi-analysis"
+        }
+      ],
+      "x_discovery_path": "146.19.254.84 (seed; matched via 146.19.254.101) → VolkanSah/Auto-Proxy-Fetcher (flagged by urlhaus) → infdevv/Composite-Autoproxy (pivot via fork_network: fork:VolkanSah/Auto-Proxy-Fetcher) → 146.19.254.101 (/24 subnet match)",
+      "x_hop_distance": 1,
+      "x_pivot_distance": 0.21,
+      "x_proximity_band": "Close",
+      "x_relevance_band": "Low",
+      "x_relevance_factors": [
+        "repo_evidence",
+        "shared_asn"
+      ],
+      "x_seed_indicator": "146.19.254.84",
+      "x_weighted_distance": 1.5
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--03006bff-0108-548d-896d-d4b89bdbf1de",
+      "created_by_ref": "identity--d0fea56c-611f-54f2-a07f-a9c37da3b33c",
+      "created": "2026-04-26T07:12:46.869Z",
+      "modified": "2026-04-26T07:12:46.869Z",
+      "name": "178.16.52.53",
+      "description": "178.16.52.191 (seed; matched via 178.16.52.53) → SecWiki/linux-kernel-exploits (flagged by urlhaus) → Gandalf-ocinzento/C2-Tracker (pivot via fork_network: Gandalf-ocinzento) → 178.16.52.53 (/24 subnet match)",
+      "indicator_types": [
+        "unknown"
+      ],
+      "pattern": "[ipv4-addr:value = '178.16.52.53']",
+      "pattern_type": "stix",
+      "pattern_version": "2.1",
+      "valid_from": "2026-04-26T07:12:46.869Z",
+      "confidence": 80,
+      "external_references": [
+        {
+          "source_name": "Source Report",
+          "url": "https://hunt.io/blog/dindoor-deno-runtime-backdoor-msi-analysis"
+        }
+      ],
+      "x_discovery_path": "178.16.52.191 (seed; matched via 178.16.52.53) → SecWiki/linux-kernel-exploits (flagged by urlhaus) → Gandalf-ocinzento/C2-Tracker (pivot via fork_network: Gandalf-ocinzento) → 178.16.52.53 (/24 subnet match)",
+      "x_hop_distance": 1,
+      "x_pivot_distance": 0.21,
+      "x_proximity_band": "Close",
+      "x_relevance_band": "Low",
+      "x_relevance_factors": [
+        "repo_evidence",
+        "shared_asn"
+      ],
+      "x_seed_indicator": "178.16.52.191",
+      "x_weighted_distance": 1.5
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--53ff4bc3-d70f-5cf1-8bbc-ea59dd979032",
+      "created_by_ref": "identity--d0fea56c-611f-54f2-a07f-a9c37da3b33c",
+      "created": "2026-04-26T07:12:46.869Z",
+      "modified": "2026-04-26T07:12:46.869Z",
+      "name": "178.16.52.91",
+      "description": "178.16.52.191 (seed; matched via 178.16.52.91) → SecWiki/linux-kernel-exploits (flagged by urlhaus) → Gandalf-ocinzento/C2-Tracker (pivot via fork_network: Gandalf-ocinzento) → 178.16.52.91 (/24 subnet match)",
+      "indicator_types": [
+        "unknown"
+      ],
+      "pattern": "[ipv4-addr:value = '178.16.52.91']",
+      "pattern_type": "stix",
+      "pattern_version": "2.1",
+      "valid_from": "2026-04-26T07:12:46.869Z",
+      "confidence": 80,
+      "external_references": [
+        {
+          "source_name": "Source Report",
+          "url": "https://hunt.io/blog/dindoor-deno-runtime-backdoor-msi-analysis"
+        }
+      ],
+      "x_discovery_path": "178.16.52.191 (seed; matched via 178.16.52.91) → SecWiki/linux-kernel-exploits (flagged by urlhaus) → Gandalf-ocinzento/C2-Tracker (pivot via fork_network: Gandalf-ocinzento) → 178.16.52.91 (/24 subnet match)",
+      "x_hop_distance": 1,
+      "x_pivot_distance": 0.21,
+      "x_proximity_band": "Close",
+      "x_relevance_band": "Low",
+      "x_relevance_factors": [
+        "repo_evidence",
+        "shared_asn"
+      ],
+      "x_seed_indicator": "178.16.52.191",
+      "x_weighted_distance": 1.5
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--833dae19-c1fe-55cf-8cd5-86b94a904367",
+      "created_by_ref": "identity--d0fea56c-611f-54f2-a07f-a9c37da3b33c",
+      "created": "2026-04-26T07:12:46.869Z",
+      "modified": "2026-04-26T07:12:46.869Z",
+      "name": "178.16.52.92",
+      "description": "178.16.52.191 (seed; matched via 178.16.52.92) → SecWiki/linux-kernel-exploits (flagged by urlhaus) → Gandalf-ocinzento/C2-Tracker (pivot via fork_network: Gandalf-ocinzento) → 178.16.52.92 (/24 subnet match)",
+      "indicator_types": [
+        "unknown"
+      ],
+      "pattern": "[ipv4-addr:value = '178.16.52.92']",
+      "pattern_type": "stix",
+      "pattern_version": "2.1",
+      "valid_from": "2026-04-26T07:12:46.869Z",
+      "confidence": 80,
+      "external_references": [
+        {
+          "source_name": "Source Report",
+          "url": "https://hunt.io/blog/dindoor-deno-runtime-backdoor-msi-analysis"
+        }
+      ],
+      "x_discovery_path": "178.16.52.191 (seed; matched via 178.16.52.92) → SecWiki/linux-kernel-exploits (flagged by urlhaus) → Gandalf-ocinzento/C2-Tracker (pivot via fork_network: Gandalf-ocinzento) → 178.16.52.92 (/24 subnet match)",
+      "x_hop_distance": 1,
+      "x_pivot_distance": 0.21,
+      "x_proximity_band": "Close",
+      "x_relevance_band": "Low",
+      "x_relevance_factors": [
+        "repo_evidence",
+        "shared_asn"
+      ],
+      "x_seed_indicator": "178.16.52.191",
+      "x_weighted_distance": 1.5
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--b7cf5bb4-3471-57fa-affc-c6e62c9eeddf",
+      "created_by_ref": "identity--d0fea56c-611f-54f2-a07f-a9c37da3b33c",
+      "created": "2026-04-26T07:12:46.869Z",
+      "modified": "2026-04-26T07:12:46.869Z",
+      "name": "178.16.52.93",
+      "description": "178.16.52.191 (seed; matched via 178.16.52.93) → SecWiki/linux-kernel-exploits (flagged by urlhaus) → Gandalf-ocinzento/C2-Tracker (pivot via fork_network: Gandalf-ocinzento) → 178.16.52.93 (/24 subnet match)",
+      "indicator_types": [
+        "unknown"
+      ],
+      "pattern": "[ipv4-addr:value = '178.16.52.93']",
+      "pattern_type": "stix",
+      "pattern_version": "2.1",
+      "valid_from": "2026-04-26T07:12:46.869Z",
+      "confidence": 80,
+      "external_references": [
+        {
+          "source_name": "Source Report",
+          "url": "https://hunt.io/blog/dindoor-deno-runtime-backdoor-msi-analysis"
+        }
+      ],
+      "x_discovery_path": "178.16.52.191 (seed; matched via 178.16.52.93) → SecWiki/linux-kernel-exploits (flagged by urlhaus) → Gandalf-ocinzento/C2-Tracker (pivot via fork_network: Gandalf-ocinzento) → 178.16.52.93 (/24 subnet match)",
+      "x_hop_distance": 1,
+      "x_pivot_distance": 0.21,
+      "x_proximity_band": "Close",
+      "x_relevance_band": "Low",
+      "x_relevance_factors": [
+        "repo_evidence",
+        "shared_asn"
+      ],
+      "x_seed_indicator": "178.16.52.191",
+      "x_weighted_distance": 1.5
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--0424b356-696c-5df8-b3d1-5995f0ae1f2b",
+      "created_by_ref": "identity--d0fea56c-611f-54f2-a07f-a9c37da3b33c",
+      "created": "2026-04-26T07:12:46.869Z",
+      "modified": "2026-04-26T07:12:46.869Z",
+      "name": "178.16.52.94",
+      "description": "178.16.52.191 (seed; matched via 178.16.52.94) → SecWiki/linux-kernel-exploits (flagged by urlhaus) → Gandalf-ocinzento/C2-Tracker (pivot via fork_network: Gandalf-ocinzento) → 178.16.52.94 (/24 subnet match)",
+      "indicator_types": [
+        "unknown"
+      ],
+      "pattern": "[ipv4-addr:value = '178.16.52.94']",
+      "pattern_type": "stix",
+      "pattern_version": "2.1",
+      "valid_from": "2026-04-26T07:12:46.869Z",
+      "confidence": 80,
+      "external_references": [
+        {
+          "source_name": "Source Report",
+          "url": "https://hunt.io/blog/dindoor-deno-runtime-backdoor-msi-analysis"
+        }
+      ],
+      "x_discovery_path": "178.16.52.191 (seed; matched via 178.16.52.94) → SecWiki/linux-kernel-exploits (flagged by urlhaus) → Gandalf-ocinzento/C2-Tracker (pivot via fork_network: Gandalf-ocinzento) → 178.16.52.94 (/24 subnet match)",
+      "x_hop_distance": 1,
+      "x_pivot_distance": 0.21,
+      "x_proximity_band": "Close",
+      "x_relevance_band": "Low",
+      "x_relevance_factors": [
+        "repo_evidence",
+        "shared_asn"
+      ],
+      "x_seed_indicator": "178.16.52.191",
+      "x_weighted_distance": 1.5
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--301b4e78-78e9-54ad-bed2-6fba6cb12143",
+      "created_by_ref": "identity--d0fea56c-611f-54f2-a07f-a9c37da3b33c",
+      "created": "2026-04-26T07:12:46.869Z",
+      "modified": "2026-04-26T07:12:46.869Z",
+      "name": "178.16.52.95",
+      "description": "178.16.52.191 (seed; matched via 178.16.52.95) → SecWiki/linux-kernel-exploits (flagged by urlhaus) → Gandalf-ocinzento/C2-Tracker (pivot via fork_network: Gandalf-ocinzento) → 178.16.52.95 (/24 subnet match)",
+      "indicator_types": [
+        "unknown"
+      ],
+      "pattern": "[ipv4-addr:value = '178.16.52.95']",
+      "pattern_type": "stix",
+      "pattern_version": "2.1",
+      "valid_from": "2026-04-26T07:12:46.869Z",
+      "confidence": 80,
+      "external_references": [
+        {
+          "source_name": "Source Report",
+          "url": "https://hunt.io/blog/dindoor-deno-runtime-backdoor-msi-analysis"
+        }
+      ],
+      "x_discovery_path": "178.16.52.191 (seed; matched via 178.16.52.95) → SecWiki/linux-kernel-exploits (flagged by urlhaus) → Gandalf-ocinzento/C2-Tracker (pivot via fork_network: Gandalf-ocinzento) → 178.16.52.95 (/24 subnet match)",
+      "x_hop_distance": 1,
+      "x_pivot_distance": 0.21,
+      "x_proximity_band": "Close",
+      "x_relevance_band": "Low",
+      "x_relevance_factors": [
+        "repo_evidence",
+        "shared_asn"
+      ],
+      "x_seed_indicator": "178.16.52.191",
+      "x_weighted_distance": 1.5
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--42c69d38-dd3a-50fe-8fba-55fd72fd27c6",
+      "created_by_ref": "identity--d0fea56c-611f-54f2-a07f-a9c37da3b33c",
+      "created": "2026-04-26T07:12:46.869Z",
+      "modified": "2026-04-26T07:12:46.869Z",
+      "name": "192.109.200.0",
+      "description": "192.109.200.151 (seed; matched via 192.109.200.0) → ReVanced/revanced-bots (flagged by urlhaus) → risjsnx/lmms.io (pivot via fork_network: risjsnx) → 192.109.200.0 (/24 subnet match)",
+      "indicator_types": [
+        "unknown"
+      ],
+      "pattern": "[ipv4-addr:value = '192.109.200.0']",
+      "pattern_type": "stix",
+      "pattern_version": "2.1",
+      "valid_from": "2026-04-26T07:12:46.869Z",
+      "confidence": 80,
+      "external_references": [
+        {
+          "source_name": "Source Report",
+          "url": "https://hunt.io/blog/dindoor-deno-runtime-backdoor-msi-analysis"
+        }
+      ],
+      "x_discovery_path": "192.109.200.151 (seed; matched via 192.109.200.0) → ReVanced/revanced-bots (flagged by urlhaus) → risjsnx/lmms.io (pivot via fork_network: risjsnx) → 192.109.200.0 (/24 subnet match)",
+      "x_hop_distance": 1,
+      "x_pivot_distance": 0.21,
+      "x_proximity_band": "Close",
+      "x_relevance_band": "Low",
+      "x_relevance_factors": [
+        "repo_evidence",
+        "shared_asn"
+      ],
+      "x_seed_indicator": "192.109.200.151",
+      "x_weighted_distance": 1.5
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--8492f1aa-fdfc-5c06-b5dc-a399c211c9b2",
+      "created_by_ref": "identity--d0fea56c-611f-54f2-a07f-a9c37da3b33c",
+      "created": "2026-04-26T07:12:46.869Z",
+      "modified": "2026-04-26T07:12:46.869Z",
+      "name": "192.109.200.213",
+      "description": "192.109.200.151 (seed; matched via 192.109.200.213) → xPOURY4/X-Auto-Reply-Assistant (flagged by urlhaus) → Xavier001/IOCs (pivot via fork_network: Xavier001) → 192.109.200.213 (/24 subnet match)",
+      "indicator_types": [
+        "unknown"
+      ],
+      "pattern": "[ipv4-addr:value = '192.109.200.213']",
+      "pattern_type": "stix",
+      "pattern_version": "2.1",
+      "valid_from": "2026-04-26T07:12:46.869Z",
+      "confidence": 80,
+      "external_references": [
+        {
+          "source_name": "Source Report",
+          "url": "https://hunt.io/blog/dindoor-deno-runtime-backdoor-msi-analysis"
+        }
+      ],
+      "x_discovery_path": "192.109.200.151 (seed; matched via 192.109.200.213) → xPOURY4/X-Auto-Reply-Assistant (flagged by urlhaus) → Xavier001/IOCs (pivot via fork_network: Xavier001) → 192.109.200.213 (/24 subnet match)",
+      "x_hop_distance": 1,
+      "x_pivot_distance": 0.21,
+      "x_proximity_band": "Close",
+      "x_relevance_band": "Low",
+      "x_relevance_factors": [
+        "repo_evidence",
+        "shared_asn"
+      ],
+      "x_seed_indicator": "192.109.200.151",
+      "x_weighted_distance": 1.5
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--bf8b3d47-0b34-56ec-af1f-7af8773520b8",
+      "created_by_ref": "identity--d0fea56c-611f-54f2-a07f-a9c37da3b33c",
+      "created": "2026-04-26T07:12:46.869Z",
+      "modified": "2026-04-26T07:12:46.869Z",
+      "name": "192.109.200.219",
+      "description": "192.109.200.151 (seed; matched via 192.109.200.219) → xPOURY4/X-Auto-Reply-Assistant (flagged by urlhaus) → Xavier001/IOCs (pivot via fork_network: Xavier001) → 192.109.200.219 (/24 subnet match)",
+      "indicator_types": [
+        "unknown"
+      ],
+      "pattern": "[ipv4-addr:value = '192.109.200.219']",
+      "pattern_type": "stix",
+      "pattern_version": "2.1",
+      "valid_from": "2026-04-26T07:12:46.869Z",
+      "confidence": 80,
+      "external_references": [
+        {
+          "source_name": "Source Report",
+          "url": "https://hunt.io/blog/dindoor-deno-runtime-backdoor-msi-analysis"
+        }
+      ],
+      "x_discovery_path": "192.109.200.151 (seed; matched via 192.109.200.219) → xPOURY4/X-Auto-Reply-Assistant (flagged by urlhaus) → Xavier001/IOCs (pivot via fork_network: Xavier001) → 192.109.200.219 (/24 subnet match)",
+      "x_hop_distance": 1,
+      "x_pivot_distance": 0.21,
+      "x_proximity_band": "Close",
+      "x_relevance_band": "Low",
+      "x_relevance_factors": [
+        "repo_evidence",
+        "shared_asn"
+      ],
+      "x_seed_indicator": "192.109.200.151",
+      "x_weighted_distance": 1.5
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--25f91af9-7c19-5fab-8782-50fc9a20fe81",
+      "created_by_ref": "identity--d0fea56c-611f-54f2-a07f-a9c37da3b33c",
+      "created": "2026-04-26T07:12:46.869Z",
+      "modified": "2026-04-26T07:12:46.869Z",
+      "name": "192.109.200.225",
+      "description": "192.109.200.151 (seed; matched via 192.109.200.225) → xPOURY4/X-Auto-Reply-Assistant (flagged by urlhaus) → Xavier001/IOCs (pivot via fork_network: Xavier001) → 192.109.200.225 (/24 subnet match)",
+      "indicator_types": [
+        "unknown"
+      ],
+      "pattern": "[ipv4-addr:value = '192.109.200.225']",
+      "pattern_type": "stix",
+      "pattern_version": "2.1",
+      "valid_from": "2026-04-26T07:12:46.869Z",
+      "confidence": 80,
+      "external_references": [
+        {
+          "source_name": "Source Report",
+          "url": "https://hunt.io/blog/dindoor-deno-runtime-backdoor-msi-analysis"
+        }
+      ],
+      "x_discovery_path": "192.109.200.151 (seed; matched via 192.109.200.225) → xPOURY4/X-Auto-Reply-Assistant (flagged by urlhaus) → Xavier001/IOCs (pivot via fork_network: Xavier001) → 192.109.200.225 (/24 subnet match)",
+      "x_hop_distance": 1,
+      "x_pivot_distance": 0.21,
+      "x_proximity_band": "Close",
+      "x_relevance_band": "Low",
+      "x_relevance_factors": [
+        "repo_evidence",
+        "shared_asn"
+      ],
+      "x_seed_indicator": "192.109.200.151",
+      "x_weighted_distance": 1.5
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--6699b2f7-85c2-5ef5-becf-557c2da08985",
+      "created_by_ref": "identity--d0fea56c-611f-54f2-a07f-a9c37da3b33c",
+      "created": "2026-04-26T07:12:46.869Z",
+      "modified": "2026-04-26T07:12:46.869Z",
+      "name": "192.109.200.33",
+      "description": "192.109.200.151 (seed; matched via 192.109.200.33) → pomerium/pomerium (flagged by urlhaus) → pomerium/torbulkexitlist (pivot via owner: pomerium) → 192.109.200.33 (/24 subnet match)",
+      "indicator_types": [
+        "unknown"
+      ],
+      "pattern": "[ipv4-addr:value = '192.109.200.33']",
+      "pattern_type": "stix",
+      "pattern_version": "2.1",
+      "valid_from": "2026-04-26T07:12:46.869Z",
+      "confidence": 80,
+      "external_references": [
+        {
+          "source_name": "Source Report",
+          "url": "https://hunt.io/blog/dindoor-deno-runtime-backdoor-msi-analysis"
+        }
+      ],
+      "x_discovery_path": "192.109.200.151 (seed; matched via 192.109.200.33) → pomerium/pomerium (flagged by urlhaus) → pomerium/torbulkexitlist (pivot via owner: pomerium) → 192.109.200.33 (/24 subnet match)",
+      "x_hop_distance": 1,
+      "x_pivot_distance": 0.21,
+      "x_proximity_band": "Close",
+      "x_relevance_band": "Low",
+      "x_relevance_factors": [
+        "repo_evidence",
+        "shared_asn"
+      ],
+      "x_seed_indicator": "192.109.200.151",
+      "x_weighted_distance": 1.5
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--9592eebb-ceb7-5474-8046-14adabb19593",
+      "created_by_ref": "identity--d0fea56c-611f-54f2-a07f-a9c37da3b33c",
+      "created": "2026-04-26T07:12:46.869Z",
+      "modified": "2026-04-26T07:12:46.869Z",
+      "name": "193.233.82.106",
+      "description": "193.233.82.43 (seed; matched via 193.233.82.106) → OlivierLaflamme/Cheatsheet-God (flagged by urlhaus) → vpnlate703-star/TikTok-Bot (pivot via fork_network: vpnlate703-star) → 193.233.82.106 (/24 subnet match)",
+      "indicator_types": [
+        "unknown"
+      ],
+      "pattern": "[ipv4-addr:value = '193.233.82.106']",
+      "pattern_type": "stix",
+      "pattern_version": "2.1",
+      "valid_from": "2026-04-26T07:12:46.869Z",
+      "confidence": 80,
+      "external_references": [
+        {
+          "source_name": "Source Report",
+          "url": "https://hunt.io/blog/dindoor-deno-runtime-backdoor-msi-analysis"
+        }
+      ],
+      "x_discovery_path": "193.233.82.43 (seed; matched via 193.233.82.106) → OlivierLaflamme/Cheatsheet-God (flagged by urlhaus) → vpnlate703-star/TikTok-Bot (pivot via fork_network: vpnlate703-star) → 193.233.82.106 (/24 subnet match)",
+      "x_hop_distance": 1,
+      "x_pivot_distance": 0.21,
+      "x_proximity_band": "Close",
+      "x_relevance_band": "Low",
+      "x_relevance_factors": [
+        "repo_evidence",
+        "shared_asn"
+      ],
+      "x_seed_indicator": "193.233.82.43",
+      "x_weighted_distance": 1.5
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--df0b0d0f-5079-5080-a02e-777eee39ea3a",
+      "created_by_ref": "identity--d0fea56c-611f-54f2-a07f-a9c37da3b33c",
+      "created": "2026-04-26T07:12:46.869Z",
+      "modified": "2026-04-26T07:12:46.869Z",
+      "name": "193.24.123.196",
+      "description": "193.24.123.25 (seed; matched via 193.24.123.196) → SecWiki/linux-kernel-exploits (flagged by urlhaus) → Gandalf-ocinzento/C2-Tracker (pivot via fork_network: Gandalf-ocinzento) → 193.24.123.196 (/24 subnet match)",
+      "indicator_types": [
+        "unknown"
+      ],
+      "pattern": "[ipv4-addr:value = '193.24.123.196']",
+      "pattern_type": "stix",
+      "pattern_version": "2.1",
+      "valid_from": "2026-04-26T07:12:46.869Z",
+      "confidence": 80,
+      "external_references": [
+        {
+          "source_name": "Source Report",
+          "url": "https://hunt.io/blog/dindoor-deno-runtime-backdoor-msi-analysis"
+        }
+      ],
+      "x_discovery_path": "193.24.123.25 (seed; matched via 193.24.123.196) → SecWiki/linux-kernel-exploits (flagged by urlhaus) → Gandalf-ocinzento/C2-Tracker (pivot via fork_network: Gandalf-ocinzento) → 193.24.123.196 (/24 subnet match)",
+      "x_hop_distance": 1,
+      "x_pivot_distance": 0.21,
+      "x_proximity_band": "Close",
+      "x_relevance_band": "Low",
+      "x_relevance_factors": [
+        "repo_evidence",
+        "shared_asn"
+      ],
+      "x_seed_indicator": "193.24.123.25",
+      "x_weighted_distance": 1.5
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--ede99b3b-44db-57b3-813e-0aa497e664c4",
+      "created_by_ref": "identity--d0fea56c-611f-54f2-a07f-a9c37da3b33c",
+      "created": "2026-04-26T07:12:46.869Z",
+      "modified": "2026-04-26T07:12:46.869Z",
+      "name": "199.217.99.123",
+      "description": "199.217.99.189 (seed; matched via 199.217.99.123) → hakimil/hack-crypto-wallet (flagged by urlhaus) → VolkanSah/Auto-Proxy-Fetcher (pivot via follower: VolkanSah) → 199.217.99.123 (/24 subnet match)",
+      "indicator_types": [
+        "unknown"
+      ],
+      "pattern": "[ipv4-addr:value = '199.217.99.123']",
+      "pattern_type": "stix",
+      "pattern_version": "2.1",
+      "valid_from": "2026-04-26T07:12:46.869Z",
+      "confidence": 80,
+      "external_references": [
+        {
+          "source_name": "Source Report",
+          "url": "https://hunt.io/blog/dindoor-deno-runtime-backdoor-msi-analysis"
+        }
+      ],
+      "x_discovery_path": "199.217.99.189 (seed; matched via 199.217.99.123) → hakimil/hack-crypto-wallet (flagged by urlhaus) → VolkanSah/Auto-Proxy-Fetcher (pivot via follower: VolkanSah) → 199.217.99.123 (/24 subnet match)",
+      "x_hop_distance": 1,
+      "x_pivot_distance": 0.21,
+      "x_proximity_band": "Close",
+      "x_relevance_band": "Low",
+      "x_relevance_factors": [
+        "repo_evidence",
+        "shared_asn"
+      ],
+      "x_seed_indicator": "199.217.99.189",
+      "x_weighted_distance": 1.5
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--42925861-0ab6-5284-9ab1-b39762e53a60",
+      "created_by_ref": "identity--d0fea56c-611f-54f2-a07f-a9c37da3b33c",
+      "created": "2026-04-26T07:12:46.869Z",
+      "modified": "2026-04-26T07:12:46.869Z",
+      "name": "209.99.189.200",
+      "description": "209.99.189.170 (seed; matched via 209.99.189.200) → pomerium/pomerium (flagged by urlhaus) → pomerium/torbulkexitlist (pivot via owner: pomerium) → 209.99.189.200 (/24 subnet match)",
+      "indicator_types": [
+        "unknown"
+      ],
+      "pattern": "[ipv4-addr:value = '209.99.189.200']",
+      "pattern_type": "stix",
+      "pattern_version": "2.1",
+      "valid_from": "2026-04-26T07:12:46.869Z",
+      "confidence": 80,
+      "external_references": [
+        {
+          "source_name": "Source Report",
+          "url": "https://hunt.io/blog/dindoor-deno-runtime-backdoor-msi-analysis"
+        }
+      ],
+      "x_discovery_path": "209.99.189.170 (seed; matched via 209.99.189.200) → pomerium/pomerium (flagged by urlhaus) → pomerium/torbulkexitlist (pivot via owner: pomerium) → 209.99.189.200 (/24 subnet match)",
+      "x_hop_distance": 1,
+      "x_pivot_distance": 0.21,
+      "x_proximity_band": "Close",
+      "x_relevance_band": "Low",
+      "x_relevance_factors": [
+        "repo_evidence",
+        "shared_asn"
+      ],
+      "x_seed_indicator": "209.99.189.170",
+      "x_weighted_distance": 1.5
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--987cb3e5-7db3-5b18-aa1a-08dd62f6f0ea",
+      "created_by_ref": "identity--d0fea56c-611f-54f2-a07f-a9c37da3b33c",
+      "created": "2026-04-26T07:12:46.869Z",
+      "modified": "2026-04-26T07:12:46.869Z",
+      "name": "45.135.180.207",
+      "description": "45.135.180.200 (seed; matched via 45.135.180.207) → SecWiki/linux-kernel-exploits (flagged by urlhaus) → Gandalf-ocinzento/C2-Tracker (pivot via fork_network: Gandalf-ocinzento) → 45.135.180.207 (/24 subnet match)",
+      "indicator_types": [
+        "unknown"
+      ],
+      "pattern": "[ipv4-addr:value = '45.135.180.207']",
+      "pattern_type": "stix",
+      "pattern_version": "2.1",
+      "valid_from": "2026-04-26T07:12:46.869Z",
+      "confidence": 80,
+      "external_references": [
+        {
+          "source_name": "Source Report",
+          "url": "https://hunt.io/blog/dindoor-deno-runtime-backdoor-msi-analysis"
+        }
+      ],
+      "x_discovery_path": "45.135.180.200 (seed; matched via 45.135.180.207) → SecWiki/linux-kernel-exploits (flagged by urlhaus) → Gandalf-ocinzento/C2-Tracker (pivot via fork_network: Gandalf-ocinzento) → 45.135.180.207 (/24 subnet match)",
+      "x_hop_distance": 1,
+      "x_pivot_distance": 0.21,
+      "x_proximity_band": "Close",
+      "x_relevance_band": "Low",
+      "x_relevance_factors": [
+        "repo_evidence",
+        "shared_asn"
+      ],
+      "x_seed_indicator": "45.135.180.200",
+      "x_weighted_distance": 1.5
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--1a4a7da4-0e9a-5255-a919-eb6a0070591d",
+      "created_by_ref": "identity--d0fea56c-611f-54f2-a07f-a9c37da3b33c",
+      "created": "2026-04-26T07:12:46.869Z",
+      "modified": "2026-04-26T07:12:46.869Z",
+      "name": "85.192.27.0",
+      "description": "85.192.27.152 (seed; matched via 85.192.27.0) → ReVanced/revanced-bots (flagged by urlhaus) → risjsnx/lmms.io (pivot via fork_network: risjsnx) → 85.192.27.0 (/24 subnet match)",
+      "indicator_types": [
+        "unknown"
+      ],
+      "pattern": "[ipv4-addr:value = '85.192.27.0']",
+      "pattern_type": "stix",
+      "pattern_version": "2.1",
+      "valid_from": "2026-04-26T07:12:46.869Z",
+      "confidence": 80,
+      "external_references": [
+        {
+          "source_name": "Source Report",
+          "url": "https://hunt.io/blog/dindoor-deno-runtime-backdoor-msi-analysis"
+        }
+      ],
+      "x_discovery_path": "85.192.27.152 (seed; matched via 85.192.27.0) → ReVanced/revanced-bots (flagged by urlhaus) → risjsnx/lmms.io (pivot via fork_network: risjsnx) → 85.192.27.0 (/24 subnet match)",
+      "x_hop_distance": 1,
+      "x_pivot_distance": 0.21,
+      "x_proximity_band": "Close",
+      "x_relevance_band": "Low",
+      "x_relevance_factors": [
+        "repo_evidence",
+        "shared_asn"
+      ],
+      "x_seed_indicator": "85.192.27.152",
+      "x_weighted_distance": 1.5
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--d4a7d25d-ce3c-5bc6-98e8-8619199230ed",
+      "created_by_ref": "identity--d0fea56c-611f-54f2-a07f-a9c37da3b33c",
+      "created": "2026-04-26T07:12:46.869Z",
+      "modified": "2026-04-26T07:12:46.869Z",
+      "name": "193.143.1.59",
+      "description": "weaplink.com (seed) → 193.143.1.59 (hosted IP)",
+      "indicator_types": [
+        "unknown"
+      ],
+      "pattern": "[ipv4-addr:value = '193.143.1.59']",
+      "pattern_type": "stix",
+      "pattern_version": "2.1",
+      "valid_from": "2026-04-26T07:12:46.869Z",
+      "external_references": [
+        {
+          "source_name": "Source Report",
+          "url": "https://hunt.io/blog/dindoor-deno-runtime-backdoor-msi-analysis"
+        }
+      ],
+      "x_discovery_path": "weaplink.com (seed) → 193.143.1.59 (hosted IP)",
+      "x_hop_distance": 1,
+      "x_pivot_distance": 0.21,
+      "x_proximity_band": "Close",
+      "x_relevance_band": "Low",
+      "x_seed_indicator": "weaplink.com",
+      "x_weighted_distance": 1.5
+    },
+    {
+      "type": "intrusion-set",
+      "spec_version": "2.1",
+      "id": "intrusion-set--3d730f10-7107-5b9e-a4e1-0136ad3d908b",
+      "created_by_ref": "identity--d0fea56c-611f-54f2-a07f-a9c37da3b33c",
+      "created": "2026-04-26T07:12:46.869Z",
+      "modified": "2026-04-26T07:12:46.869Z",
+      "name": "Malanta Cluster: 0E03EA2D-75F6-9AD0-04B1-540B309779A0",
+      "description": "2 members, 1 malicious, 0 suspicious",
+      "x_cluster_id": "0E03EA2D-75F6-9AD0-04B1-540B309779A0",
+      "x_malicious_count": 1,
+      "x_source_indicators": [
+        "140.82.18.48"
+      ],
+      "x_suspicious_count": 0,
+      "x_total_members": 2
+    },
+    {
+      "type": "intrusion-set",
+      "spec_version": "2.1",
+      "id": "intrusion-set--d910970d-ad15-5c67-b144-847bd31558f7",
+      "created_by_ref": "identity--d0fea56c-611f-54f2-a07f-a9c37da3b33c",
+      "created": "2026-04-26T07:12:46.869Z",
+      "modified": "2026-04-26T07:12:46.869Z",
+      "name": "Malanta Cluster: 59EAED30-B096-F8E9-7274-E71958CC2F99",
+      "description": "2 members, 1 malicious, 0 suspicious",
+      "x_cluster_id": "59EAED30-B096-F8E9-7274-E71958CC2F99",
+      "x_malicious_count": 1,
+      "x_source_indicators": [
+        "192.109.200.151"
+      ],
+      "x_suspicious_count": 0,
+      "x_total_members": 2
+    },
+    {
+      "type": "intrusion-set",
+      "spec_version": "2.1",
+      "id": "intrusion-set--0d156ed8-7a5f-559b-9551-4dc4881061a7",
+      "created_by_ref": "identity--d0fea56c-611f-54f2-a07f-a9c37da3b33c",
+      "created": "2026-04-26T07:12:46.869Z",
+      "modified": "2026-04-26T07:12:46.869Z",
+      "name": "Malanta Cluster: 38F86DE0-6FC0-5FD3-E7A2-CC240DDE3C14",
+      "description": "2 members, 1 malicious, 0 suspicious",
+      "x_cluster_id": "38F86DE0-6FC0-5FD3-E7A2-CC240DDE3C14",
+      "x_malicious_count": 1,
+      "x_source_indicators": [
+        "178.16.52.64"
+      ],
+      "x_suspicious_count": 0,
+      "x_total_members": 2
+    },
+    {
+      "type": "intrusion-set",
+      "spec_version": "2.1",
+      "id": "intrusion-set--51f5a46d-8bb4-52bb-924d-1d261d925aa1",
+      "created_by_ref": "identity--d0fea56c-611f-54f2-a07f-a9c37da3b33c",
+      "created": "2026-04-26T07:12:46.869Z",
+      "modified": "2026-04-26T07:12:46.869Z",
+      "name": "Malanta Cluster: E8120272-B5BF-777E-0509-0A936105BE75",
+      "description": "2 members, 1 malicious, 0 suspicious",
+      "x_cluster_id": "E8120272-B5BF-777E-0509-0A936105BE75",
+      "x_malicious_count": 1,
+      "x_source_indicators": [
+        "193.24.123.84"
+      ],
+      "x_suspicious_count": 0,
+      "x_total_members": 2
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--1ca33b9a-2882-45c4-b9f5-17271eea990b",
+      "created_by_ref": "identity--d0fea56c-611f-54f2-a07f-a9c37da3b33c",
+      "created": "2026-04-26T07:12:46.869Z",
+      "modified": "2026-04-26T07:12:46.869Z",
+      "relationship_type": "indicates",
+      "source_ref": "indicator--7aa78c34-f5ba-5506-a989-008de203d837",
+      "target_ref": "intrusion-set--3d730f10-7107-5b9e-a4e1-0136ad3d908b"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--226b450b-7ea9-48e5-baa5-573f24186853",
+      "created_by_ref": "identity--d0fea56c-611f-54f2-a07f-a9c37da3b33c",
+      "created": "2026-04-26T07:12:46.869Z",
+      "modified": "2026-04-26T07:12:46.869Z",
+      "relationship_type": "indicates",
+      "source_ref": "indicator--40b746af-04af-54ae-86de-7c1a2279adaf",
+      "target_ref": "intrusion-set--3d730f10-7107-5b9e-a4e1-0136ad3d908b"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--c959680d-e6f3-4d85-a887-4c0e775ed42d",
+      "created_by_ref": "identity--d0fea56c-611f-54f2-a07f-a9c37da3b33c",
+      "created": "2026-04-26T07:12:46.869Z",
+      "modified": "2026-04-26T07:12:46.869Z",
+      "relationship_type": "indicates",
+      "source_ref": "indicator--fa1fd611-4901-5327-ab1f-11e3d6c00f21",
+      "target_ref": "intrusion-set--d910970d-ad15-5c67-b144-847bd31558f7"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--9db57030-e171-4fdc-8157-aabb7cbfc270",
+      "created_by_ref": "identity--d0fea56c-611f-54f2-a07f-a9c37da3b33c",
+      "created": "2026-04-26T07:12:46.869Z",
+      "modified": "2026-04-26T07:12:46.869Z",
+      "relationship_type": "indicates",
+      "source_ref": "indicator--c59df8fc-8b28-5ed1-a6e6-41899a257f91",
+      "target_ref": "intrusion-set--d910970d-ad15-5c67-b144-847bd31558f7"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--59f84a24-f8ff-4f2c-9d17-377a7ac7fde4",
+      "created_by_ref": "identity--d0fea56c-611f-54f2-a07f-a9c37da3b33c",
+      "created": "2026-04-26T07:12:46.869Z",
+      "modified": "2026-04-26T07:12:46.869Z",
+      "relationship_type": "indicates",
+      "source_ref": "indicator--e04e48e3-a2e8-5231-ab01-60b46a77ef84",
+      "target_ref": "intrusion-set--0d156ed8-7a5f-559b-9551-4dc4881061a7"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--f9b973e7-d119-45d7-a48c-da9decb9ae99",
+      "created_by_ref": "identity--d0fea56c-611f-54f2-a07f-a9c37da3b33c",
+      "created": "2026-04-26T07:12:46.869Z",
+      "modified": "2026-04-26T07:12:46.869Z",
+      "relationship_type": "indicates",
+      "source_ref": "indicator--33bce55c-4817-5a72-8c7b-9a43094ec738",
+      "target_ref": "intrusion-set--0d156ed8-7a5f-559b-9551-4dc4881061a7"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--bbc14326-b757-46bc-8e25-6effe5e695c5",
+      "created_by_ref": "identity--d0fea56c-611f-54f2-a07f-a9c37da3b33c",
+      "created": "2026-04-26T07:12:46.869Z",
+      "modified": "2026-04-26T07:12:46.869Z",
+      "relationship_type": "indicates",
+      "source_ref": "indicator--54e5044b-67bd-5352-904a-24640b08f213",
+      "target_ref": "intrusion-set--51f5a46d-8bb4-52bb-924d-1d261d925aa1"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--ffbd578b-8136-4371-836d-d50e322d0a95",
+      "created_by_ref": "identity--d0fea56c-611f-54f2-a07f-a9c37da3b33c",
+      "created": "2026-04-26T07:12:46.869Z",
+      "modified": "2026-04-26T07:12:46.869Z",
+      "relationship_type": "indicates",
+      "source_ref": "indicator--7ff94077-c205-5bd7-a6d4-6f7af47111b3",
+      "target_ref": "intrusion-set--51f5a46d-8bb4-52bb-924d-1d261d925aa1"
+    },
+    {
+      "type": "threat-actor",
+      "spec_version": "2.1",
+      "id": "threat-actor--c0a46d45-cb44-552a-898a-3ee20042b0f6",
+      "created_by_ref": "identity--d0fea56c-611f-54f2-a07f-a9c37da3b33c",
+      "created": "2026-04-26T07:12:46.869Z",
+      "modified": "2026-04-26T07:12:46.869Z",
+      "name": "TEMP.Zagros",
+      "description": "TEMP.Zagros is an Iran-linked intrusion set commonly associated with espionage operations against government, telecom, education, and regional organizations. Public reporting often overlaps it with MuddyWater/Seedworm-style activity.",
+      "aliases": [
+        "MuddyWater",
+        "Seedworm",
+        "Static Kitten",
+        "MERCURY",
+        "Earth Vetala"
+      ],
+      "confidence": 62,
+      "x_country": "Iran",
+      "x_known_ttps": "- Spearphishing with malicious documents and links.\n- PowerShell backdoors and script-based loaders.\n- Abuse of legitimate admin and RMM tools.\n- Web shells and staged C2 infrastructure.\n- Targeting Middle East and regional government entities.",
+      "x_source": "malanta_api"
+    },
+    {
+      "type": "threat-actor",
+      "spec_version": "2.1",
+      "id": "threat-actor--8568aa44-3c65-54c2-95ab-6bb4311c063f",
+      "created_by_ref": "identity--d0fea56c-611f-54f2-a07f-a9c37da3b33c",
+      "created": "2026-04-26T07:12:46.869Z",
+      "modified": "2026-04-26T07:12:46.869Z",
+      "name": "Shuckworm",
+      "description": "Shuckworm is a Russia-linked espionage group widely associated with operations against Ukrainian government, defense, and critical-sector targets. It is known for rapid infrastructure rotation and phishing-led access operations.",
+      "aliases": [
+        "Gamaredon",
+        "Armageddon",
+        "Primitive Bear",
+        "ACTINIUM",
+        "Trident Ursa"
+      ],
+      "confidence": 62,
+      "x_country": "Russia",
+      "x_known_ttps": "- Spearphishing with malicious attachments or links\n- Dynamic DNS and disposable domain infrastructure\n- PowerShell, VBScript, and batch-based execution\n- Frequent C2 and payload infrastructure rotation\n- Credential theft and persistent remote access",
+      "x_source": "malanta_api"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--76f57bbf-425f-45c2-9f04-7c0e14804030",
+      "created_by_ref": "identity--d0fea56c-611f-54f2-a07f-a9c37da3b33c",
+      "created": "2026-04-26T07:12:46.869Z",
+      "modified": "2026-04-26T07:12:46.869Z",
+      "relationship_type": "indicates",
+      "source_ref": "indicator--ddc94cef-1d50-57cb-adfe-a75e1d973ecd",
+      "target_ref": "threat-actor--c0a46d45-cb44-552a-898a-3ee20042b0f6"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--de758bf7-09d6-4162-aa0e-3c5acc5ad9ae",
+      "created_by_ref": "identity--d0fea56c-611f-54f2-a07f-a9c37da3b33c",
+      "created": "2026-04-26T07:12:46.869Z",
+      "modified": "2026-04-26T07:12:46.869Z",
+      "relationship_type": "indicates",
+      "source_ref": "indicator--7aa78c34-f5ba-5506-a989-008de203d837",
+      "target_ref": "threat-actor--8568aa44-3c65-54c2-95ab-6bb4311c063f"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--4b0aafe9-771e-4c9f-8052-b6cf8e46e261",
+      "created_by_ref": "identity--d0fea56c-611f-54f2-a07f-a9c37da3b33c",
+      "created": "2026-04-26T07:12:46.869Z",
+      "modified": "2026-04-26T07:12:46.869Z",
+      "relationship_type": "attributed-to",
+      "source_ref": "intrusion-set--3d730f10-7107-5b9e-a4e1-0136ad3d908b",
+      "target_ref": "threat-actor--8568aa44-3c65-54c2-95ab-6bb4311c063f"
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--36831e87-a20f-5cb0-9042-6eede5948b17",
+      "created_by_ref": "identity--d0fea56c-611f-54f2-a07f-a9c37da3b33c",
+      "created": "2026-04-26T07:12:46.869Z",
+      "modified": "2026-04-26T07:12:46.869Z",
+      "name": "Acquire Infrastructure: Domains",
+      "kill_chain_phases": [
+        {
+          "kill_chain_name": "mitre-attack",
+          "phase_name": "resource-development"
+        }
+      ],
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "url": "https://attack.mitre.org/techniques/T1583/001/",
+          "external_id": "T1583.001"
+        }
+      ]
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--0c7a0de1-2872-5882-950c-d69cc694caac",
+      "created_by_ref": "identity--d0fea56c-611f-54f2-a07f-a9c37da3b33c",
+      "created": "2026-04-26T07:12:46.869Z",
+      "modified": "2026-04-26T07:12:46.869Z",
+      "name": "Malanta BYOI Investigation Report",
+      "description": "Extracted 41 indicator(s) from report/text sources:\n- **domain** (19): `hunt.io`, `dl.deno.land`, `deno.land`, `bandage.healthydefinitetrunk.com`, `grafana.healthydefinitetrunk.com` ... and 14 more\n- **ip** (21): `127.0.0.1`, `193.233.82.43`, `138.124.240.76`, `138.124.240.77`, `140.82.18.48` ... and 16 more\n- **url** (1): `http://serialmenot.com/mv2/`\n\nAverage extraction confidence: 73%\n\n- Malanta enrichment of 37 seed IOCs identified 34 expansion indicators and 8 cluster-sourced IoPAs, indicating staged pre-attack infrastructure rather than only post-compromise artifacts.\n- Four domains were classified malicious: `bubuklaysdertolitodas.com` and `geralnewlong.com` at p=1.0; `coinbase.com.lv` and `verification-stokr.io` at p=0.9885. No suspicious-only domains were reported.\n- Four clusters each contained 1 domain, 1 malicious label, and 100% risk: `E8120272-B5B...`, `0E03EA2D-75F...`, `59EAED30-B09...`, and `38F86DE0-6FC...`.\n- APT attribution is Medium confidence: TEMP.Zagros/Iran and Shuckworm/Russia were both reported by `malanta_api` at 62% confidence.\n- Code-repository intelligence found 9 seeds in URLhaus, including `209.99.189.170`, `192.109.200.151`, `85.192.27.152`, `193.233.82.43`, and `45.135.180.200`.\n- Overall confidence: High for malicious infrastructure clustering; Medium for actor attribution and hosting-pattern assessment due to limited hosting/ASN detail provided.",
+      "report_types": [
+        "threat-report"
+      ],
+      "published": "2026-04-26T07:12:46.869Z",
+      "object_refs": [
+        "indicator--cd0c7349-6fc0-5ebb-9c3c-1366c10d6854",
+        "indicator--04559cf9-759b-554f-96dd-8267d433a59a",
+        "indicator--ddc94cef-1d50-57cb-adfe-a75e1d973ecd",
+        "indicator--cf7157c7-a698-5b24-92b7-26314e78408f",
+        "indicator--88d2fb7f-3128-5d14-a1d7-f621645a8a97",
+        "indicator--43161ca6-27bc-5a33-849a-3d9fddf878a3",
+        "indicator--fe4f34c9-d0d7-5dfe-935f-213281b2b4a7",
+        "indicator--ded5e11c-3e9c-5840-a649-ebe70e4cf4d7",
+        "indicator--ee7ae1af-7d28-5e37-a7de-5ff596c2fe00",
+        "indicator--efaf896b-217d-5e1f-9bff-f400a2d639bc",
+        "indicator--225cf1c8-f7a9-59d8-be55-93c130df36ef",
+        "indicator--efe010db-afda-5284-903b-8be2ba3ab963",
+        "indicator--0e2333cd-d4e4-555e-b64c-f7e0ad11f3b2",
+        "indicator--16d1c437-7065-5daf-a02f-5f3b5f84d2db",
+        "indicator--9dc9bcd0-05f4-500b-9aaf-3c420a07fe5a",
+        "indicator--b7862108-9f79-53da-a23d-1573c5c0fb06",
+        "indicator--75946327-8038-5ec3-9bec-38860e87a60d",
+        "indicator--0f25337c-05e8-55f3-a5ed-4ccd9e3e7577",
+        "indicator--fdfeb577-3c33-5315-8246-2693869597a4",
+        "indicator--7aa78c34-f5ba-5506-a989-008de203d837",
+        "indicator--714efe90-da46-510c-86bf-6f1179229d6a",
+        "indicator--1005736d-2900-56ad-bed7-92ded3f33bcb",
+        "indicator--6d0d7c48-0bef-587f-b17d-972b33076182",
+        "indicator--42494525-c778-5766-9af8-4363ad0e4310",
+        "indicator--fa1fd611-4901-5327-ab1f-11e3d6c00f21",
+        "indicator--62c49877-993a-5413-8a80-db8ea43cd3ec",
+        "indicator--43c24f77-f714-55b8-9bce-6e32eac12ac4",
+        "indicator--9d705491-706d-57a7-af43-4abc01f72105",
+        "indicator--360e3006-e188-58f7-9027-d31c8cdc91d7",
+        "indicator--5850a3e9-c75b-5228-89e4-66661b34377e",
+        "indicator--f298e4e3-7b16-5254-bd62-11942807e669",
+        "indicator--eefe276d-875a-575e-9377-6ba6b6957782",
+        "indicator--c9f557de-877e-57ea-ab67-3c4612363041",
+        "indicator--e6bd22a5-be46-5de6-a9c2-61ba8815cbf9",
+        "indicator--b1dba5f3-43a4-5ba6-929e-2614fc59ee8f",
+        "indicator--feed9cbd-7ec1-59d6-9969-623cb7271aa7",
+        "indicator--d41fe336-4214-5ac0-b597-25a644c87f8f",
+        "indicator--40b746af-04af-54ae-86de-7c1a2279adaf",
+        "indicator--472725a8-f972-593c-af59-9094698da060",
+        "indicator--c59df8fc-8b28-5ed1-a6e6-41899a257f91",
+        "indicator--1f961e94-420e-5dd9-8d3c-40bc96758194",
+        "indicator--8a2051a7-e7b7-5a33-9643-743538fa368a",
+        "indicator--340cced6-6ef7-5ed5-82a9-51ac9cfa3f3a",
+        "indicator--e04e48e3-a2e8-5231-ab01-60b46a77ef84",
+        "indicator--54e5044b-67bd-5352-904a-24640b08f213",
+        "indicator--cb7e2103-1810-5b97-9301-4ae4493a3a47",
+        "indicator--ed428c3c-cc06-50f0-a97c-93de9febcc4c",
+        "indicator--33bce55c-4817-5a72-8c7b-9a43094ec738",
+        "indicator--7ff94077-c205-5bd7-a6d4-6f7af47111b3",
+        "indicator--734147cf-801f-5a40-865c-d195d68042d6",
+        "indicator--03006bff-0108-548d-896d-d4b89bdbf1de",
+        "indicator--53ff4bc3-d70f-5cf1-8bbc-ea59dd979032",
+        "indicator--833dae19-c1fe-55cf-8cd5-86b94a904367",
+        "indicator--b7cf5bb4-3471-57fa-affc-c6e62c9eeddf",
+        "indicator--0424b356-696c-5df8-b3d1-5995f0ae1f2b",
+        "indicator--301b4e78-78e9-54ad-bed2-6fba6cb12143",
+        "indicator--42c69d38-dd3a-50fe-8fba-55fd72fd27c6",
+        "indicator--8492f1aa-fdfc-5c06-b5dc-a399c211c9b2",
+        "indicator--bf8b3d47-0b34-56ec-af1f-7af8773520b8",
+        "indicator--25f91af9-7c19-5fab-8782-50fc9a20fe81",
+        "indicator--6699b2f7-85c2-5ef5-becf-557c2da08985",
+        "indicator--9592eebb-ceb7-5474-8046-14adabb19593",
+        "indicator--df0b0d0f-5079-5080-a02e-777eee39ea3a",
+        "indicator--ede99b3b-44db-57b3-813e-0aa497e664c4",
+        "indicator--42925861-0ab6-5284-9ab1-b39762e53a60",
+        "indicator--987cb3e5-7db3-5b18-aa1a-08dd62f6f0ea",
+        "indicator--1a4a7da4-0e9a-5255-a919-eb6a0070591d",
+        "indicator--d4a7d25d-ce3c-5bc6-98e8-8619199230ed",
+        "intrusion-set--3d730f10-7107-5b9e-a4e1-0136ad3d908b",
+        "intrusion-set--d910970d-ad15-5c67-b144-847bd31558f7",
+        "intrusion-set--0d156ed8-7a5f-559b-9551-4dc4881061a7",
+        "intrusion-set--51f5a46d-8bb4-52bb-924d-1d261d925aa1",
+        "relationship--1ca33b9a-2882-45c4-b9f5-17271eea990b",
+        "relationship--226b450b-7ea9-48e5-baa5-573f24186853",
+        "relationship--c959680d-e6f3-4d85-a887-4c0e775ed42d",
+        "relationship--9db57030-e171-4fdc-8157-aabb7cbfc270",
+        "relationship--59f84a24-f8ff-4f2c-9d17-377a7ac7fde4",
+        "relationship--f9b973e7-d119-45d7-a48c-da9decb9ae99",
+        "relationship--bbc14326-b757-46bc-8e25-6effe5e695c5",
+        "relationship--ffbd578b-8136-4371-836d-d50e322d0a95",
+        "threat-actor--c0a46d45-cb44-552a-898a-3ee20042b0f6",
+        "threat-actor--8568aa44-3c65-54c2-95ab-6bb4311c063f",
+        "relationship--76f57bbf-425f-45c2-9f04-7c0e14804030",
+        "relationship--de758bf7-09d6-4162-aa0e-3c5acc5ad9ae",
+        "relationship--4b0aafe9-771e-4c9f-8052-b6cf8e46e261",
+        "attack-pattern--36831e87-a20f-5cb0-9042-6eede5948b17"
+      ],
+      "x_duration_seconds": 423.5,
+      "x_expanded_count": 34,
+      "x_extracted_count": 15,
+      "x_finding_count": 7,
+      "x_investigation_id": "4f0e8797-187",
+      "x_report_date": "2026-04-21T00:00:00.000Z",
+      "x_seed_count": 37,
+      "x_tool_version": "0.1.0"
+    }
+  ]
+}

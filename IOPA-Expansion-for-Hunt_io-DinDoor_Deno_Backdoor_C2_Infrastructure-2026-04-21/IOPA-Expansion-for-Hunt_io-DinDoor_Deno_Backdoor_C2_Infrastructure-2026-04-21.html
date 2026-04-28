@@ -1,0 +1,1211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Investigation Report — 4f0e8797-187</title>
+<style>
+:root {
+  --bg: #ffffff;
+  --fg: #1a1a2e;
+  --muted: #555770;
+  --border: #d1d5db;
+  --accent: #2563eb;
+  --accent-light: #dbeafe;
+  --danger: #dc2626;
+  --danger-light: #fee2e2;
+  --warn: #d97706;
+  --warn-light: #fef3c7;
+  --success: #16a34a;
+  --success-light: #dcfce7;
+  --surface: #f8fafc;
+  --code-bg: #f1f5f9;
+  --font: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --mono: "JetBrains Mono", "Fira Code", "Cascadia Code", "Consolas", monospace;
+}
+/* Dark mode disabled — reports always render in light mode for consistency */
+*, *::before, *::after { box-sizing: border-box; }
+body {
+  font-family: var(--font);
+  background: var(--bg);
+  color: var(--fg);
+  line-height: 1.65;
+  margin: 0 auto;
+  padding: 2rem 3rem;
+  max-width: 1800px;
+}
+h1 { font-size: 1.8rem; border-bottom: 3px solid var(--accent); padding-bottom: 0.5rem; margin-top: 2rem; }
+h2 { font-size: 1.4rem; color: var(--accent); margin-top: 2.5rem; border-bottom: 1px solid var(--border); padding-bottom: 0.3rem; }
+h3 { font-size: 1.15rem; margin-top: 2rem; }
+h4 { font-size: 1rem; margin-top: 1.2rem; }
+code {
+  font-family: var(--mono);
+  font-size: 0.88em;
+  background: var(--code-bg);
+  padding: 0.15em 0.4em;
+  border-radius: 4px;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1rem 0;
+  font-size: 0.92rem;
+}
+th, td {
+  border: 1px solid var(--border);
+  padding: 0.55rem 0.75rem;
+  text-align: left;
+}
+th { background: var(--surface); font-weight: 600; }
+tr:nth-child(even) td { background: var(--surface); }
+.badge {
+  display: inline-block;
+  padding: 0.15em 0.6em;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+.badge-malicious  { background: var(--danger-light); color: var(--danger); }
+.badge-suspicious { background: var(--warn-light);   color: var(--warn); }
+.badge-legit      { background: #e6f4ea; color: #1e7e34; }
+.badge-unknown    { background: var(--surface); color: var(--muted); }
+.badge-feed       { background: var(--accent-light); color: var(--accent); }
+.badge-repo       { background: #e8eaf6; color: #3949ab; }
+.repo-annotation  { margin-top: 0.4em; padding: 0.35em 0.5em; background: #e8eaf6; border-left: 3px solid #3949ab; border-radius: 3px; font-size: 0.82em; color: #3949ab; }
+@media (prefers-color-scheme: dark) {
+  .badge-repo      { background: #283593; color: #c5cae9; }
+  .repo-annotation { background: #1a237e; border-left-color: #7986cb; color: #c5cae9; }
+}
+.risk-card {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 1rem 1.25rem;
+  margin: 0.75rem 0;
+  background: var(--surface);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  align-items: center;
+}
+.risk-card .risk-label { font-weight: 600; min-width: 200px; }
+.risk-card .risk-stat { text-align: center; }
+.risk-card .risk-stat .num { font-size: 1.3rem; font-weight: 700; }
+.risk-card .risk-stat .desc { font-size: 0.75rem; color: var(--muted); text-transform: uppercase; }
+.apt-card {
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--danger);
+  border-radius: 8px;
+  padding: 1rem 1.25rem;
+  margin: 0.75rem 0;
+  background: var(--surface);
+}
+.apt-card h4 { margin: 0 0 0.5rem 0; color: var(--danger); }
+.meta-grid {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 0.75rem;
+  margin: 1rem 0;
+}
+.meta-grid .meta-item { flex: 1 1 0; min-width: 0; }
+.meta-item {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 0.75rem 1rem;
+}
+.meta-item .label { font-size: 0.78rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; }
+.meta-item .value { font-size: 1.1rem; font-weight: 600; word-break: break-all; }
+.indicator { font-family: var(--mono); font-weight: 600; }
+.expansion-table .indicator { word-break: break-all; }
+.expansion-table td { overflow-wrap: break-word; word-wrap: break-word; }
+.expansion-table td:nth-child(1),
+.expansion-table td:nth-child(3) { white-space: nowrap; }
+.table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; margin: 1rem 0; }
+.table-wrap table { margin: 0; }
+.expansion-table { min-width: 1200px; table-layout: fixed; }
+.seeds-grid { display: flex; gap: 1.5rem; flex-wrap: wrap; }
+.seeds-grid > .table-wrap { flex: 1; min-width: 280px; }
+blockquote {
+  border-left: 3px solid var(--accent);
+  margin: 0.5rem 0;
+  padding: 0.5rem 1rem;
+  background: var(--code-bg);
+  font-size: 0.92rem;
+}
+ul { padding-left: 1.4rem; }
+li { margin-bottom: 0.25rem; }
+hr { border: none; border-top: 1px solid var(--border); margin: 2rem 0; }
+
+/* ---- Responsive: tablets ---- */
+@media (max-width: 768px) {
+  body { padding: 1rem; }
+  h1 { font-size: 1.4rem; }
+  h2 { font-size: 1.2rem; }
+  .meta-grid { flex-wrap: wrap; }
+  .meta-grid .meta-item { flex: 1 1 calc(50% - 0.5rem); min-width: 0; }
+  .risk-card { flex-direction: column; gap: 0.75rem; }
+  .risk-card .risk-label { min-width: unset; }
+  .apt-card { padding: 0.75rem 1rem; }
+}
+
+/* ---- Responsive: phones ---- */
+@media (max-width: 480px) {
+  body { padding: 0.75rem; }
+  h1 { font-size: 1.25rem; }
+  h2 { font-size: 1.1rem; margin-top: 1.75rem; }
+  h3 { font-size: 1rem; }
+  .meta-grid .meta-item { flex: 1 1 100%; }
+  .meta-item .value { font-size: 1rem; }
+  table { font-size: 0.82rem; }
+  th, td { padding: 0.4rem 0.5rem; }
+  code { font-size: 0.8em; }
+  .badge { font-size: 0.7rem; }
+}
+
+@media print {
+  body { padding: 0; max-width: none; }
+  .no-print { display: none !important; }
+}
+.report-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-bottom: 3px solid var(--accent);
+  padding-bottom: 0.75rem;
+  margin-top: 2rem;
+  margin-bottom: 0.5rem;
+}
+.report-header h1 {
+  border: none;
+  padding: 0;
+  margin: 0.5rem 0 0 0;
+}
+.report-header img {
+  height: 38px;
+  width: auto;
+}
+@media (prefers-color-scheme: dark) {
+  .report-header img { filter: invert(1) brightness(2); }
+}
+</style>
+</head>
+<body>
+
+<div class="report-header">
+  <img src="https://app.malanta.ai/svg/logo-black.svg" alt="Malanta">
+  <h1>Bring Your Own IOCs Report</h1>
+</div>
+
+<div class="meta-grid">
+  <div class="meta-item">
+    <div class="label">Report ID</div>
+    <div class="value">4f0e8797-187</div>
+  </div>
+  <div class="meta-item">
+    <div class="label">Generated</div>
+    <div class="value">Apr 26, 2026 07:12 UTC</div>
+  </div>
+  <div class="meta-item">
+    <div class="label">Seeds</div>
+    <div class="value">37</div>
+  </div>
+  <div class="meta-item">
+    <div class="label">Malanta Clusters</div>
+    <div class="value">4</div>
+  </div>
+  <div class="meta-item">
+    <div class="label">Malanta IoPAs</div>
+    <div class="value">34</div>
+  </div>
+</div>
+
+<h2>1. Executive Summary</h2>
+<ul>
+<li>Malanta enrichment of 37 seed IOCs identified 34 expansion indicators and 8 cluster-sourced IoPAs, indicating staged pre-attack infrastructure rather than only post-compromise artifacts.</li>
+<li>Four domains were classified malicious: <code>bubuklaysdertolitodas.com</code> and <code>geralnewlong.com</code> at p=1.0; <code>coinbase.com.lv</code> and <code>verification-stokr.io</code> at p=0.9885. No suspicious-only domains were reported.</li>
+<li>Four clusters each contained 1 domain, 1 malicious label, and 100% risk: <code>E8120272-B5B...</code>, <code>0E03EA2D-75F...</code>, <code>59EAED30-B09...</code>, and <code>38F86DE0-6FC...</code>.</li>
+<li>APT attribution is Medium confidence: TEMP.Zagros/Iran and Shuckworm/Russia were both reported by <code>malanta_api</code> at 62% confidence.</li>
+<li>Code-repository intelligence found 9 seeds in URLhaus, including <code>209.99.189.170</code>, <code>192.109.200.151</code>, <code>85.192.27.152</code>, <code>193.233.82.43</code>, and <code>45.135.180.200</code>.</li>
+<li>Overall confidence: High for malicious infrastructure clustering; Medium for actor attribution and hosting-pattern assessment due to limited hosting/ASN detail provided.</li>
+</ul>
+
+<h2>2. Seed IOCs</h2>
+<p style="margin-bottom:4px;">Automatically extracted from <a href="https://hunt.io/blog/dindoor-deno-runtime-backdoor-msi-analysis" target="_blank" rel="noopener noreferrer">https://hunt.io/blog/dindoor-deno-runtime-backdoor-msi-analysis</a></p>
+<p style="margin-bottom:12px;"><strong>Report date:</strong> 2026-04-21</p>
+<div class="seeds-grid">
+  <div class="table-wrap">
+  <table>
+    <thead><tr><th>Type</th><th>Indicator</th></tr></thead>
+    <tbody>
+    <tr>
+      <td>domain</td>
+      <td><code class="indicator">annaionovna.com</code></td>
+    </tr>
+    <tr>
+      <td>domain</td>
+      <td><code class="indicator">justtalken.com</code></td>
+    </tr>
+    <tr>
+      <td>domain</td>
+      <td><code class="indicator">serialmenot.com</code></td>
+    </tr>
+    <tr>
+      <td>domain</td>
+      <td><code class="indicator">aeeracaspsl.site</code></td>
+    </tr>
+    <tr>
+      <td>domain</td>
+      <td><code class="indicator">agilemast3r.duckdns.org</code></td>
+    </tr>
+    <tr>
+      <td>domain</td>
+      <td><code class="indicator">bandage.healthydefinitetrunk.com</code></td>
+    </tr>
+    <tr>
+      <td>domain</td>
+      <td><code class="indicator">bitatits.surf</code></td>
+    </tr>
+    <tr>
+      <td>domain</td>
+      <td><code class="indicator">generalnewlong.com</code></td>
+    </tr>
+    <tr>
+      <td>domain</td>
+      <td><code class="indicator">grafana.healthydefinitetrunk.com</code></td>
+    </tr>
+    <tr>
+      <td>domain</td>
+      <td><code class="indicator">hngfbgfbfb.cyou</code></td>
+    </tr>
+    <tr>
+      <td>domain</td>
+      <td><code class="indicator">ilspaeysoff.site</code></td>
+    </tr>
+    <tr>
+      <td>domain</td>
+      <td><code class="indicator">ineracaspsl.site</code></td>
+    </tr>
+    <tr>
+      <td>domain</td>
+      <td><code class="indicator">landmas.info</code></td>
+    </tr>
+    <tr>
+      <td>domain</td>
+      <td><code class="indicator">myspaeysoff.site</code></td>
+    </tr>
+    <tr>
+      <td>domain</td>
+      <td><code class="indicator">playerdragonbike.com</code></td>
+    </tr>
+    <tr>
+      <td>domain</td>
+      <td><code class="indicator">surgery.healthydefinitetrunk.com</code></td>
+    </tr>
+    <tr>
+      <td>domain</td>
+      <td><code class="indicator">weaplink.com</code></td>
+    </tr>
+    <tr>
+      <td>ip</td>
+      <td><code class="indicator">138.124.240.76</code></td>
+    </tr>
+    <tr>
+      <td>ip</td>
+      <td><code class="indicator">138.124.240.77</code></td>
+    </tr>
+    </tbody>
+  </table>
+  </div>
+  <div class="table-wrap">
+  <table>
+    <thead><tr><th>Type</th><th>Indicator</th></tr></thead>
+    <tbody>
+    <tr>
+      <td>ip</td>
+      <td><code class="indicator">140.82.18.48</code></td>
+    </tr>
+    <tr>
+      <td>ip</td>
+      <td><code class="indicator">146.19.254.84</code></td>
+    </tr>
+    <tr>
+      <td>ip</td>
+      <td><code class="indicator">178.104.137.180</code></td>
+    </tr>
+    <tr>
+      <td>ip</td>
+      <td><code class="indicator">178.16.52.191</code></td>
+    </tr>
+    <tr>
+      <td>ip</td>
+      <td><code class="indicator">185.218.19.117</code></td>
+    </tr>
+    <tr>
+      <td>ip</td>
+      <td><code class="indicator">192.109.200.151</code></td>
+    </tr>
+    <tr>
+      <td>ip</td>
+      <td><code class="indicator">193.233.82.43</code></td>
+    </tr>
+    <tr>
+      <td>ip</td>
+      <td><code class="indicator">193.24.123.25</code></td>
+    </tr>
+    <tr>
+      <td>ip</td>
+      <td><code class="indicator">194.48.141.192</code></td>
+    </tr>
+    <tr>
+      <td>ip</td>
+      <td><code class="indicator">199.217.99.189</code></td>
+    </tr>
+    <tr>
+      <td>ip</td>
+      <td><code class="indicator">199.91.220.142</code></td>
+    </tr>
+    <tr>
+      <td>ip</td>
+      <td><code class="indicator">199.91.220.216</code></td>
+    </tr>
+    <tr>
+      <td>ip</td>
+      <td><code class="indicator">2.26.117.169</code></td>
+    </tr>
+    <tr>
+      <td>ip</td>
+      <td><code class="indicator">2.27.122.16</code></td>
+    </tr>
+    <tr>
+      <td>ip</td>
+      <td><code class="indicator">209.99.189.170</code></td>
+    </tr>
+    <tr>
+      <td>ip</td>
+      <td><code class="indicator">45.135.180.200</code></td>
+    </tr>
+    <tr>
+      <td>ip</td>
+      <td><code class="indicator">45.151.106.88</code></td>
+    </tr>
+    <tr>
+      <td>ip</td>
+      <td><code class="indicator">85.192.27.152</code></td>
+    </tr>
+    </tbody>
+  </table>
+  </div>
+</div>
+
+<h2>3. Expansion Indicators</h2>
+
+<details open>
+  <summary style="cursor:pointer;font-weight:600;margin-bottom:8px;font-size:0.95rem;">
+    <strong>15</strong> high-confidence indicator(s) discovered through pivoting on seed IOCs (DNS, WHOIS, hosted domains, infrastructure pivots, clusters, code repositories).
+ <span style="color:var(--muted);font-weight:400;">+ 19 low-confidence (see below)</span>  </summary>
+<div class="table-wrap">
+<table class="expansion-table">
+  <colgroup>
+    <col style="width:2.5%;">
+    <col style="width:11%;">
+    <col style="width:5%;">
+    <col style="width:11%;">
+    <col>
+    <col style="width:6%;">
+    <col>
+    <col style="width:5%;">
+    <col style="width:7%;">
+    <col style="width:7%;">
+    <col style="width:5%;">
+  </colgroup>
+  <thead><tr><th>#</th><th>Seed Indicator</th><th>Type</th><th>Indicator</th><th>Discovery Source</th><th>Proximity</th><th>Adversarial Resource Linkage</th><th>Malanta Indicator of Pre-Attack</th><th>Malanta Malicious Classification (beta)</th><th>Malanta Classification Date</th><th>Lead Time</th></tr></thead>
+  <tbody>
+  <tr>
+    <td>1</td>
+    <td style="font-size:0.85em;"><code class="indicator">annaionovna.com</code></td>
+    <td>domain</td>
+    <td><code class="indicator">annaionovna.com</code></td>
+    <td style="font-size:0.85em;">Seed IOC</td>
+    <td>
+        <span class="badge badge-feed">DIRECT</span>
+    </td>
+    <td style="font-size:0.85em;"></td>
+    <td><span class="badge badge-feed">Yes</span></td>
+    <td>
+      <span class="badge badge-malicious">Malicious</span>
+    </td>
+    <td>2026-04-13</td>
+    <td>
+      <span class="badge" style="background: var(--success-light); color: var(--success);">+7d</span>
+    </td>
+  </tr>
+  <tr>
+    <td>2</td>
+    <td style="font-size:0.85em;"><code class="indicator">justtalken.com</code></td>
+    <td>domain</td>
+    <td><code class="indicator">justtalken.com</code></td>
+    <td style="font-size:0.85em;">Seed IOC</td>
+    <td>
+        <span class="badge badge-feed">DIRECT</span>
+    </td>
+    <td style="font-size:0.85em;"></td>
+    <td><span class="badge badge-feed">Yes</span></td>
+    <td>
+      <span class="badge badge-malicious">Malicious</span>
+    </td>
+    <td>2026-04-09</td>
+    <td>
+      <span class="badge" style="background: var(--success-light); color: var(--success);">+11d</span>
+    </td>
+  </tr>
+  <tr>
+    <td>3</td>
+    <td style="font-size:0.85em;"><code class="indicator">serialmenot.com</code></td>
+    <td>domain</td>
+    <td><code class="indicator">serialmenot.com</code></td>
+    <td style="font-size:0.85em;">Seed IOC</td>
+    <td>
+        <span class="badge badge-feed">DIRECT</span>
+    </td>
+    <td style="font-size:0.85em;"></td>
+    <td><span class="badge badge-feed">Yes</span></td>
+    <td>
+      <span class="badge badge-malicious">Malicious</span>
+    </td>
+    <td>2026-03-11</td>
+    <td>
+      <span class="badge" style="background: var(--success-light); color: var(--success);">+40d</span>
+    </td>
+  </tr>
+  <tr>
+    <td>4</td>
+    <td style="font-size:0.85em;"><code class="indicator">140.82.18.48</code></td>
+    <td>domain</td>
+    <td><code class="indicator">coinbase.com.lv</code></td>
+    <td style="font-size:0.85em;">140.82.18.48 (seed) → coinbase.com.lv (IP reverse)</td>
+    <td>
+        <span class="badge badge-malicious">VERY CLOSE &middot; 1 hop</span>
+    </td>
+    <td style="font-size:0.85em;">Cluster ID: 0E03EA2D-75F6-9AD0-04B1-540B309779A0</td>
+    <td><span class="badge badge-feed">Yes</span></td>
+    <td>
+      <span class="badge badge-malicious">Malicious</span>
+    </td>
+    <td>2025-12-26</td>
+    <td>
+      <span class="badge" style="background: var(--success-light); color: var(--success);">+115d</span>
+    </td>
+  </tr>
+  <tr>
+    <td>5</td>
+    <td style="font-size:0.85em;"><code class="indicator">193.24.123.25</code></td>
+    <td>domain</td>
+    <td><code class="indicator">aespaeysoff.site</code></td>
+    <td style="font-size:0.85em;">193.24.123.25 (seed) → aespaeysoff.site (IP reverse)</td>
+    <td>
+        <span class="badge badge-malicious">VERY CLOSE &middot; 1 hop</span>
+    </td>
+    <td style="font-size:0.85em;"></td>
+    <td><span class="badge badge-feed">Yes</span></td>
+    <td>
+      <span style="color: var(--muted);">—</span>
+    </td>
+    <td>—</td>
+    <td>
+      —
+    </td>
+  </tr>
+  <tr>
+    <td>6</td>
+    <td style="font-size:0.85em;"><code class="indicator">192.109.200.151</code></td>
+    <td>domain</td>
+    <td><code class="indicator">geralnewlong.com</code></td>
+    <td style="font-size:0.85em;">192.109.200.151 (seed) → Cluster 59EAED30-B09 → geralnewlong.com</td>
+    <td>
+        <span class="badge badge-malicious">VERY CLOSE &middot; 1 hop</span>
+    </td>
+    <td style="font-size:0.85em;">Cluster ID: 59EAED30-B096-F8E9-7274-E71958CC2F99</td>
+    <td><span class="badge badge-feed">Yes</span></td>
+    <td>
+      <span class="badge badge-malicious">Malicious</span>
+    </td>
+    <td>2026-04-09</td>
+    <td>
+      <span class="badge" style="background: var(--success-light); color: var(--success);">+11d</span>
+    </td>
+  </tr>
+  <tr>
+    <td>7</td>
+    <td style="font-size:0.85em;"><code class="indicator">193.24.123.25</code></td>
+    <td>domain</td>
+    <td><code class="indicator">ileracaspsl.site</code></td>
+    <td style="font-size:0.85em;">193.24.123.25 (seed) → ileracaspsl.site (IP reverse)</td>
+    <td>
+        <span class="badge badge-malicious">VERY CLOSE &middot; 1 hop</span>
+    </td>
+    <td style="font-size:0.85em;"></td>
+    <td><span class="badge badge-feed">Yes</span></td>
+    <td>
+      <span style="color: var(--muted);">—</span>
+    </td>
+    <td>—</td>
+    <td>
+      —
+    </td>
+  </tr>
+  <tr>
+    <td>8</td>
+    <td style="font-size:0.85em;"><code class="indicator">193.24.123.25</code></td>
+    <td>domain</td>
+    <td><code class="indicator">inspaeysoff.site</code></td>
+    <td style="font-size:0.85em;">193.24.123.25 (seed) → inspaeysoff.site (IP reverse)</td>
+    <td>
+        <span class="badge badge-malicious">VERY CLOSE &middot; 1 hop</span>
+    </td>
+    <td style="font-size:0.85em;"></td>
+    <td><span class="badge badge-feed">Yes</span></td>
+    <td>
+      <span style="color: var(--muted);">—</span>
+    </td>
+    <td>—</td>
+    <td>
+      —
+    </td>
+  </tr>
+  <tr>
+    <td>9</td>
+    <td style="font-size:0.85em;"><code class="indicator">193.24.123.25</code></td>
+    <td>domain</td>
+    <td><code class="indicator">myeracaspsl.site</code></td>
+    <td style="font-size:0.85em;">193.24.123.25 (seed) → myeracaspsl.site (IP reverse)</td>
+    <td>
+        <span class="badge badge-malicious">VERY CLOSE &middot; 1 hop</span>
+    </td>
+    <td style="font-size:0.85em;"></td>
+    <td><span class="badge badge-feed">Yes</span></td>
+    <td>
+      <span style="color: var(--muted);">—</span>
+    </td>
+    <td>—</td>
+    <td>
+      —
+    </td>
+  </tr>
+  <tr>
+    <td>10</td>
+    <td style="font-size:0.85em;"><code class="indicator">178.16.52.191</code></td>
+    <td>ip</td>
+    <td><code class="indicator">178.16.52.64</code></td>
+    <td style="font-size:0.85em;">178.16.52.191 (seed; matched via 178.16.52.64) → SecWiki/linux-kernel-exploits (flagged by urlhaus) → Gandalf-ocinzento/C2-Tracker (pivot via fork_network: Gandalf-ocinzento) → 178.16.52.64 (/24 subnet match)</td>
+    <td>
+        <span class="badge badge-suspicious">CLOSE &middot; 1 hop</span>
+    </td>
+    <td style="font-size:0.85em;">Found in data/Hookbot IPs.txt (line 4): 94.183.168.33, 192.253.234.63, 156.238.243.16, 178.16.52.64; Cluster ID: 38F86DE0-6FC0-5FD3-E7A2-CC240DDE3C14</td>
+    <td><span class="badge badge-feed">Yes</span></td>
+    <td>
+      <span style="color: var(--muted);">—</span>
+    </td>
+    <td>—</td>
+    <td>
+      —
+    </td>
+  </tr>
+  <tr>
+    <td>11</td>
+    <td style="font-size:0.85em;"><code class="indicator">193.24.123.25</code></td>
+    <td>ip</td>
+    <td><code class="indicator">193.24.123.84</code></td>
+    <td style="font-size:0.85em;">193.24.123.25 (seed; matched via 193.24.123.84) → pr0xylife/DarkGate (flagged by urlhaus) → MikhailKasimov/validin-phish-feed (pivot via fork_network: MikhailKasimov) → 193.24.123.84 (/24 subnet match)</td>
+    <td>
+        <span class="badge badge-suspicious">CLOSE &middot; 1 hop</span>
+    </td>
+    <td style="font-size:0.85em;">Found in validin-phish-feed-4.txt (line 81922); Cluster ID: E8120272-B5BF-777E-0509-0A936105BE75</td>
+    <td><span class="badge badge-feed">Yes</span></td>
+    <td>
+      <span style="color: var(--muted);">—</span>
+    </td>
+    <td>—</td>
+    <td>
+      —
+    </td>
+  </tr>
+  <tr>
+    <td>12</td>
+    <td style="font-size:0.85em;"><code class="indicator">199.217.99.189</code></td>
+    <td>domain</td>
+    <td><code class="indicator">klikzonewyr.com</code></td>
+    <td style="font-size:0.85em;">199.217.99.189 (seed) → klikzonewyr.com (IP reverse)</td>
+    <td>
+        <span class="badge badge-malicious">VERY CLOSE &middot; 1 hop</span>
+    </td>
+    <td style="font-size:0.85em;"></td>
+    <td><span class="badge badge-feed">Yes</span></td>
+    <td>
+      <span style="color: var(--muted);">—</span>
+    </td>
+    <td>—</td>
+    <td>
+      —
+    </td>
+  </tr>
+  <tr>
+    <td>13</td>
+    <td style="font-size:0.85em;"><code class="indicator">45.135.180.200</code></td>
+    <td>domain</td>
+    <td><code class="indicator">utka.click</code></td>
+    <td style="font-size:0.85em;">45.135.180.200 (seed) → utka.click (IP reverse)</td>
+    <td>
+        <span class="badge badge-malicious">VERY CLOSE &middot; 1 hop</span>
+    </td>
+    <td style="font-size:0.85em;"></td>
+    <td><span class="badge badge-feed">Yes</span></td>
+    <td>
+      <span style="color: var(--muted);">—</span>
+    </td>
+    <td>—</td>
+    <td>
+      —
+    </td>
+  </tr>
+  <tr>
+    <td>14</td>
+    <td style="font-size:0.85em;"><code class="indicator">178.16.52.191</code></td>
+    <td>domain</td>
+    <td><code class="indicator">bubuklaysdertolitodas.com</code></td>
+    <td style="font-size:0.85em;">178.16.52.191 (seed) → 178.16.52.64 (code repo) → Cluster 38F86DE0-6FC → bubuklaysdertolitodas.com</td>
+    <td>
+        <span class="badge badge-suspicious">CLOSE &middot; 2 hops</span>
+    </td>
+    <td style="font-size:0.85em;">Cluster ID: 38F86DE0-6FC0-5FD3-E7A2-CC240DDE3C14</td>
+    <td><span class="badge badge-feed">Yes</span></td>
+    <td>
+      <span class="badge badge-malicious">Malicious</span>
+    </td>
+    <td>2025-10-29</td>
+    <td>
+      <span class="badge" style="background: var(--success-light); color: var(--success);">+173d</span>
+    </td>
+  </tr>
+  <tr>
+    <td>15</td>
+    <td style="font-size:0.85em;"><code class="indicator">193.24.123.25</code></td>
+    <td>domain</td>
+    <td><code class="indicator">verification-stokr.io</code></td>
+    <td style="font-size:0.85em;">193.24.123.25 (seed) → 193.24.123.84 (code repo) → Cluster E8120272-B5B → verification-stokr.io</td>
+    <td>
+        <span class="badge badge-suspicious">CLOSE &middot; 2 hops</span>
+    </td>
+    <td style="font-size:0.85em;">Cluster ID: E8120272-B5BF-777E-0509-0A936105BE75</td>
+    <td><span class="badge badge-feed">Yes</span></td>
+    <td>
+      <span class="badge badge-malicious">Malicious</span>
+    </td>
+    <td>2026-01-13</td>
+    <td>
+      <span class="badge" style="background: var(--success-light); color: var(--success);">+97d</span>
+    </td>
+  </tr>
+  </tbody>
+</table>
+</div>
+</details>
+
+
+<details style="margin-top:16px;">
+  <summary style="cursor:pointer;font-weight:600;margin-bottom:8px;font-size:0.95rem;color:var(--muted, #6c757d);">
+    Low-Confidence Indicators (19) — below relevance threshold
+  </summary>
+<div class="table-wrap">
+<table class="expansion-table" style="opacity:0.8;">
+  <colgroup>
+    <col style="width:2.5%;">
+    <col style="width:11%;">
+    <col style="width:5%;">
+    <col style="width:11%;">
+    <col>
+    <col style="width:6%;">
+    <col>
+    <col style="width:5%;">
+    <col style="width:7%;">
+    <col style="width:7%;">
+    <col style="width:5%;">
+  </colgroup>
+  <thead><tr><th>#</th><th>Seed Indicator</th><th>Type</th><th>Indicator</th><th>Discovery Source</th><th>Proximity</th><th>Adversarial Resource Linkage</th><th>Malanta Indicator of Pre-Attack</th><th>Malanta Malicious Classification (beta)</th><th>Malanta Classification Date</th><th>Lead Time</th></tr></thead>
+  <tbody>
+  <tr>
+    <td>1</td>
+    <td style="font-size:0.85em;"><code class="indicator">146.19.254.84</code></td>
+    <td>ip</td>
+    <td><code class="indicator">146.19.254.101</code></td>
+    <td style="font-size:0.85em;">146.19.254.84 (seed; matched via 146.19.254.101) → VolkanSah/Auto-Proxy-Fetcher (flagged by urlhaus) → infdevv/Composite-Autoproxy (pivot via fork_network: fork:VolkanSah/Auto-Proxy-Fetcher) → 146.19.254.101 (/24 subnet match)</td>
+    <td>
+        <span class="badge badge-suspicious">CLOSE &middot; 1 hop</span>
+    </td>
+    <td style="font-size:0.85em;">Found in misc_proxies.txt (line 305): socks4://91.223.52.141:5678, socks4://14.232.166.150:5678, http://188.227.196.62:1080, socks5://146.19.254.101:5555, socks4://185.191.165.28:1080, socks4://95.43.244.15:4153, http://103.105.76.65:8080</td>
+    <td><span class="badge badge-feed">Yes</span></td>
+    <td>
+      <span style="color: var(--muted);">—</span>
+    </td>
+    <td>—</td>
+    <td>
+      —
+    </td>
+  </tr>
+  <tr>
+    <td>2</td>
+    <td style="font-size:0.85em;"><code class="indicator">178.16.52.191</code></td>
+    <td>ip</td>
+    <td><code class="indicator">178.16.52.53</code></td>
+    <td style="font-size:0.85em;">178.16.52.191 (seed; matched via 178.16.52.53) → SecWiki/linux-kernel-exploits (flagged by urlhaus) → Gandalf-ocinzento/C2-Tracker (pivot via fork_network: Gandalf-ocinzento) → 178.16.52.53 (/24 subnet match)</td>
+    <td>
+        <span class="badge badge-suspicious">CLOSE &middot; 1 hop</span>
+    </td>
+    <td style="font-size:0.85em;">Found in data/Sliver C2 IPs.txt (line 252): 158.220.115.82, 38.143.109.169, 18.158.1.133, 178.16.52.53, 185.209.42.105, 52.52.233.130, 130.94.33.52</td>
+    <td><span class="badge badge-feed">Yes</span></td>
+    <td>
+      <span style="color: var(--muted);">—</span>
+    </td>
+    <td>—</td>
+    <td>
+      —
+    </td>
+  </tr>
+  <tr>
+    <td>3</td>
+    <td style="font-size:0.85em;"><code class="indicator">178.16.52.191</code></td>
+    <td>ip</td>
+    <td><code class="indicator">178.16.52.91</code></td>
+    <td style="font-size:0.85em;">178.16.52.191 (seed; matched via 178.16.52.91) → SecWiki/linux-kernel-exploits (flagged by urlhaus) → Gandalf-ocinzento/C2-Tracker (pivot via fork_network: Gandalf-ocinzento) → 178.16.52.91 (/24 subnet match)</td>
+    <td>
+        <span class="badge badge-suspicious">CLOSE &middot; 1 hop</span>
+    </td>
+    <td style="font-size:0.85em;">Found in data/Sliver C2 IPs.txt (line 262): 164.92.136.111, 18.169.87.175, 80.78.18.42, 178.16.52.91, 64.226.101.105, 181.214.100.88, 176.117.68.140</td>
+    <td><span class="badge badge-feed">Yes</span></td>
+    <td>
+      <span style="color: var(--muted);">—</span>
+    </td>
+    <td>—</td>
+    <td>
+      —
+    </td>
+  </tr>
+  <tr>
+    <td>4</td>
+    <td style="font-size:0.85em;"><code class="indicator">178.16.52.191</code></td>
+    <td>ip</td>
+    <td><code class="indicator">178.16.52.92</code></td>
+    <td style="font-size:0.85em;">178.16.52.191 (seed; matched via 178.16.52.92) → SecWiki/linux-kernel-exploits (flagged by urlhaus) → Gandalf-ocinzento/C2-Tracker (pivot via fork_network: Gandalf-ocinzento) → 178.16.52.92 (/24 subnet match)</td>
+    <td>
+        <span class="badge badge-suspicious">CLOSE &middot; 1 hop</span>
+    </td>
+    <td style="font-size:0.85em;">Found in data/Sliver C2 IPs.txt (line 428): 107.172.67.68, 101.33.246.201, 182.255.46.159, 178.16.52.92, 35.176.102.236, 13.134.114.209, 145.223.70.112</td>
+    <td><span class="badge badge-feed">Yes</span></td>
+    <td>
+      <span style="color: var(--muted);">—</span>
+    </td>
+    <td>—</td>
+    <td>
+      —
+    </td>
+  </tr>
+  <tr>
+    <td>5</td>
+    <td style="font-size:0.85em;"><code class="indicator">178.16.52.191</code></td>
+    <td>ip</td>
+    <td><code class="indicator">178.16.52.93</code></td>
+    <td style="font-size:0.85em;">178.16.52.191 (seed; matched via 178.16.52.93) → SecWiki/linux-kernel-exploits (flagged by urlhaus) → Gandalf-ocinzento/C2-Tracker (pivot via fork_network: Gandalf-ocinzento) → 178.16.52.93 (/24 subnet match)</td>
+    <td>
+        <span class="badge badge-suspicious">CLOSE &middot; 1 hop</span>
+    </td>
+    <td style="font-size:0.85em;">Found in data/Sliver C2 IPs.txt (line 209): 45.140.213.84, 167.172.12.244, 195.20.17.49, 178.16.52.93, 159.195.59.191, 142.171.228.216, 172.237.36.196</td>
+    <td><span class="badge badge-feed">Yes</span></td>
+    <td>
+      <span style="color: var(--muted);">—</span>
+    </td>
+    <td>—</td>
+    <td>
+      —
+    </td>
+  </tr>
+  <tr>
+    <td>6</td>
+    <td style="font-size:0.85em;"><code class="indicator">178.16.52.191</code></td>
+    <td>ip</td>
+    <td><code class="indicator">178.16.52.94</code></td>
+    <td style="font-size:0.85em;">178.16.52.191 (seed; matched via 178.16.52.94) → SecWiki/linux-kernel-exploits (flagged by urlhaus) → Gandalf-ocinzento/C2-Tracker (pivot via fork_network: Gandalf-ocinzento) → 178.16.52.94 (/24 subnet match)</td>
+    <td>
+        <span class="badge badge-suspicious">CLOSE &middot; 1 hop</span>
+    </td>
+    <td style="font-size:0.85em;">Found in data/Sliver C2 IPs.txt (line 280): 3.9.62.133, 18.171.16.32, 138.197.224.55, 178.16.52.94, 208.87.128.140, 66.103.201.249, 54.176.133.154</td>
+    <td><span class="badge badge-feed">Yes</span></td>
+    <td>
+      <span style="color: var(--muted);">—</span>
+    </td>
+    <td>—</td>
+    <td>
+      —
+    </td>
+  </tr>
+  <tr>
+    <td>7</td>
+    <td style="font-size:0.85em;"><code class="indicator">178.16.52.191</code></td>
+    <td>ip</td>
+    <td><code class="indicator">178.16.52.95</code></td>
+    <td style="font-size:0.85em;">178.16.52.191 (seed; matched via 178.16.52.95) → SecWiki/linux-kernel-exploits (flagged by urlhaus) → Gandalf-ocinzento/C2-Tracker (pivot via fork_network: Gandalf-ocinzento) → 178.16.52.95 (/24 subnet match)</td>
+    <td>
+        <span class="badge badge-suspicious">CLOSE &middot; 1 hop</span>
+    </td>
+    <td style="font-size:0.85em;">Found in data/Sliver C2 IPs.txt (line 77): 164.68.126.4, 161.35.64.250, 64.52.80.159, 178.16.52.95, 207.180.207.252, 47.84.83.56, 93.127.128.88</td>
+    <td><span class="badge badge-feed">Yes</span></td>
+    <td>
+      <span style="color: var(--muted);">—</span>
+    </td>
+    <td>—</td>
+    <td>
+      —
+    </td>
+  </tr>
+  <tr>
+    <td>8</td>
+    <td style="font-size:0.85em;"><code class="indicator">192.109.200.151</code></td>
+    <td>ip</td>
+    <td><code class="indicator">192.109.200.0</code></td>
+    <td style="font-size:0.85em;">192.109.200.151 (seed; matched via 192.109.200.0) → ReVanced/revanced-bots (flagged by urlhaus) → risjsnx/lmms.io (pivot via fork_network: risjsnx) → 192.109.200.0 (/24 subnet match)</td>
+    <td>
+        <span class="badge badge-suspicious">CLOSE &middot; 1 hop</span>
+    </td>
+    <td style="font-size:0.85em;">Found in dev/block-aeza.conf (line 129): deny 85.192.26.0/24;, deny 45.142.122.0/24;, deny 193.232.178.0/24;, deny 192.109.200.0/24;, deny 2a0f:cdc6:5030::/44;, deny 193.188.20.0/24;, deny 85.192.28.0/24;</td>
+    <td><span class="badge badge-feed">Yes</span></td>
+    <td>
+      <span style="color: var(--muted);">—</span>
+    </td>
+    <td>—</td>
+    <td>
+      —
+    </td>
+  </tr>
+  <tr>
+    <td>9</td>
+    <td style="font-size:0.85em;"><code class="indicator">192.109.200.151</code></td>
+    <td>ip</td>
+    <td><code class="indicator">192.109.200.213</code></td>
+    <td style="font-size:0.85em;">192.109.200.151 (seed; matched via 192.109.200.213) → xPOURY4/X-Auto-Reply-Assistant (flagged by urlhaus) → Xavier001/IOCs (pivot via fork_network: Xavier001) → 192.109.200.213 (/24 subnet match)</td>
+    <td>
+        <span class="badge badge-suspicious">CLOSE &middot; 1 hop</span>
+    </td>
+    <td style="font-size:0.85em;">Found in IP-Abused-Level4-original.txt (line 741): 190.181.27.22, 190.242.189.253, 191.5.31.61, 192.109.200.213, 192.109.200.219, 192.155.90.118, 192.155.90.220</td>
+    <td><span class="badge badge-feed">Yes</span></td>
+    <td>
+      <span style="color: var(--muted);">—</span>
+    </td>
+    <td>—</td>
+    <td>
+      —
+    </td>
+  </tr>
+  <tr>
+    <td>10</td>
+    <td style="font-size:0.85em;"><code class="indicator">192.109.200.151</code></td>
+    <td>ip</td>
+    <td><code class="indicator">192.109.200.219</code></td>
+    <td style="font-size:0.85em;">192.109.200.151 (seed; matched via 192.109.200.219) → xPOURY4/X-Auto-Reply-Assistant (flagged by urlhaus) → Xavier001/IOCs (pivot via fork_network: Xavier001) → 192.109.200.219 (/24 subnet match)</td>
+    <td>
+        <span class="badge badge-suspicious">CLOSE &middot; 1 hop</span>
+    </td>
+    <td style="font-size:0.85em;">Found in IP-Abused-Level4-original.txt (line 742): 190.242.189.253, 191.5.31.61, 192.109.200.213, 192.109.200.219, 192.155.90.118, 192.155.90.220, 192.241.154.87</td>
+    <td><span class="badge badge-feed">Yes</span></td>
+    <td>
+      <span style="color: var(--muted);">—</span>
+    </td>
+    <td>—</td>
+    <td>
+      —
+    </td>
+  </tr>
+  <tr>
+    <td>11</td>
+    <td style="font-size:0.85em;"><code class="indicator">192.109.200.151</code></td>
+    <td>ip</td>
+    <td><code class="indicator">192.109.200.225</code></td>
+    <td style="font-size:0.85em;">192.109.200.151 (seed; matched via 192.109.200.225) → xPOURY4/X-Auto-Reply-Assistant (flagged by urlhaus) → Xavier001/IOCs (pivot via fork_network: Xavier001) → 192.109.200.225 (/24 subnet match)</td>
+    <td>
+        <span class="badge badge-suspicious">CLOSE &middot; 1 hop</span>
+    </td>
+    <td style="font-size:0.85em;">Found in IP-Abused-Level4-original.txt (line 178): 189.50.142.82, 189.217.130.86, 190.124.153.17, 192.109.200.225, 193.32.162.82, 193.32.162.157, 199.45.154.141</td>
+    <td><span class="badge badge-feed">Yes</span></td>
+    <td>
+      <span style="color: var(--muted);">—</span>
+    </td>
+    <td>—</td>
+    <td>
+      —
+    </td>
+  </tr>
+  <tr>
+    <td>12</td>
+    <td style="font-size:0.85em;"><code class="indicator">192.109.200.151</code></td>
+    <td>ip</td>
+    <td><code class="indicator">192.109.200.33</code></td>
+    <td style="font-size:0.85em;">192.109.200.151 (seed; matched via 192.109.200.33) → pomerium/pomerium (flagged by urlhaus) → pomerium/torbulkexitlist (pivot via owner: pomerium) → 192.109.200.33 (/24 subnet match)</td>
+    <td>
+        <span class="badge badge-suspicious">CLOSE &middot; 1 hop</span>
+    </td>
+    <td style="font-size:0.85em;">Found in torbulkexitlist.json (line 1524): &#34;id&#34;: &#34;192.108.48.150&#34;, },, {, &#34;id&#34;: &#34;192.109.200.33&#34;, },, {, &#34;id&#34;: &#34;192.121.44.26&#34;</td>
+    <td><span class="badge badge-feed">Yes</span></td>
+    <td>
+      <span style="color: var(--muted);">—</span>
+    </td>
+    <td>—</td>
+    <td>
+      —
+    </td>
+  </tr>
+  <tr>
+    <td>13</td>
+    <td style="font-size:0.85em;"><code class="indicator">193.233.82.43</code></td>
+    <td>ip</td>
+    <td><code class="indicator">193.233.82.106</code></td>
+    <td style="font-size:0.85em;">193.233.82.43 (seed; matched via 193.233.82.106) → OlivierLaflamme/Cheatsheet-God (flagged by urlhaus) → vpnlate703-star/TikTok-Bot (pivot via fork_network: vpnlate703-star) → 193.233.82.106 (/24 subnet match)</td>
+    <td>
+        <span class="badge badge-suspicious">CLOSE &middot; 1 hop</span>
+    </td>
+    <td style="font-size:0.85em;">Found in Proxies.txt (line 1678): 181.83.228.224:7071, 139.180.185.83:3128, 14.160.3.77:5678, 193.233.82.106:8085, 89.186.17.82:3737, 131.196.8.1:999, 161.35.139.101:8080</td>
+    <td><span class="badge badge-feed">Yes</span></td>
+    <td>
+      <span style="color: var(--muted);">—</span>
+    </td>
+    <td>—</td>
+    <td>
+      —
+    </td>
+  </tr>
+  <tr>
+    <td>14</td>
+    <td style="font-size:0.85em;"><code class="indicator">193.24.123.25</code></td>
+    <td>ip</td>
+    <td><code class="indicator">193.24.123.196</code></td>
+    <td style="font-size:0.85em;">193.24.123.25 (seed; matched via 193.24.123.196) → SecWiki/linux-kernel-exploits (flagged by urlhaus) → Gandalf-ocinzento/C2-Tracker (pivot via fork_network: Gandalf-ocinzento) → 193.24.123.196 (/24 subnet match)</td>
+    <td>
+        <span class="badge badge-suspicious">CLOSE &middot; 1 hop</span>
+    </td>
+    <td style="font-size:0.85em;">Found in data/Sliver C2 IPs.txt (line 417): 80.78.30.33, 143.198.136.6, 52.28.208.13, 193.24.123.196, 182.92.159.149, 45.150.108.43, 103.69.194.85</td>
+    <td><span class="badge badge-feed">Yes</span></td>
+    <td>
+      <span style="color: var(--muted);">—</span>
+    </td>
+    <td>—</td>
+    <td>
+      —
+    </td>
+  </tr>
+  <tr>
+    <td>15</td>
+    <td style="font-size:0.85em;"><code class="indicator">199.217.99.189</code></td>
+    <td>ip</td>
+    <td><code class="indicator">199.217.99.123</code></td>
+    <td style="font-size:0.85em;">199.217.99.189 (seed; matched via 199.217.99.123) → hakimil/hack-crypto-wallet (flagged by urlhaus) → VolkanSah/Auto-Proxy-Fetcher (pivot via follower: VolkanSah) → 199.217.99.123 (/24 subnet match)</td>
+    <td>
+        <span class="badge badge-suspicious">CLOSE &middot; 1 hop</span>
+    </td>
+    <td style="font-size:0.85em;">Found in proxies.txt (line 297): 195.211.71.200:1433, 196.1.97.198:80, 198.177.57.197:80, 199.217.99.123:2525, 201.182.204.18:9999, 202.5.36.147:8090, 202.5.37.120:21225</td>
+    <td><span class="badge badge-feed">Yes</span></td>
+    <td>
+      <span style="color: var(--muted);">—</span>
+    </td>
+    <td>—</td>
+    <td>
+      —
+    </td>
+  </tr>
+  <tr>
+    <td>16</td>
+    <td style="font-size:0.85em;"><code class="indicator">209.99.189.170</code></td>
+    <td>ip</td>
+    <td><code class="indicator">209.99.189.200</code></td>
+    <td style="font-size:0.85em;">209.99.189.170 (seed; matched via 209.99.189.200) → pomerium/pomerium (flagged by urlhaus) → pomerium/torbulkexitlist (pivot via owner: pomerium) → 209.99.189.200 (/24 subnet match)</td>
+    <td>
+        <span class="badge badge-suspicious">CLOSE &middot; 1 hop</span>
+    </td>
+    <td style="font-size:0.85em;">Found in torbulkexitlist.json (line 2070): &#34;id&#34;: &#34;209.141.61.225&#34;, },, {, &#34;id&#34;: &#34;209.99.189.200&#34;, },, {, &#34;id&#34;: &#34;212.21.66.6&#34;</td>
+    <td><span class="badge badge-feed">Yes</span></td>
+    <td>
+      <span style="color: var(--muted);">—</span>
+    </td>
+    <td>—</td>
+    <td>
+      —
+    </td>
+  </tr>
+  <tr>
+    <td>17</td>
+    <td style="font-size:0.85em;"><code class="indicator">45.135.180.200</code></td>
+    <td>ip</td>
+    <td><code class="indicator">45.135.180.207</code></td>
+    <td style="font-size:0.85em;">45.135.180.200 (seed; matched via 45.135.180.207) → SecWiki/linux-kernel-exploits (flagged by urlhaus) → Gandalf-ocinzento/C2-Tracker (pivot via fork_network: Gandalf-ocinzento) → 45.135.180.207 (/24 subnet match)</td>
+    <td>
+        <span class="badge badge-suspicious">CLOSE &middot; 1 hop</span>
+    </td>
+    <td style="font-size:0.85em;">Found in data/Sliver C2 IPs.txt (line 375): 51.83.133.9, 52.58.156.181, 157.245.46.190, 45.135.180.207, 107.150.1.174, 13.135.45.177, 43.134.67.236</td>
+    <td><span class="badge badge-feed">Yes</span></td>
+    <td>
+      <span style="color: var(--muted);">—</span>
+    </td>
+    <td>—</td>
+    <td>
+      —
+    </td>
+  </tr>
+  <tr>
+    <td>18</td>
+    <td style="font-size:0.85em;"><code class="indicator">85.192.27.152</code></td>
+    <td>ip</td>
+    <td><code class="indicator">85.192.27.0</code></td>
+    <td style="font-size:0.85em;">85.192.27.152 (seed; matched via 85.192.27.0) → ReVanced/revanced-bots (flagged by urlhaus) → risjsnx/lmms.io (pivot via fork_network: risjsnx) → 85.192.27.0 (/24 subnet match)</td>
+    <td>
+        <span class="badge badge-suspicious">CLOSE &middot; 1 hop</span>
+    </td>
+    <td style="font-size:0.85em;">Found in dev/block-aeza.conf (line 66): deny 85.192.61.0/24;, deny 77.105.167.0/24;, deny 85.192.38.0/24;, deny 85.192.27.0/24;, deny 109.172.95.0/24;, deny 138.124.89.0/24;, deny 2a01:e5c0:f000::/36;</td>
+    <td><span class="badge badge-feed">Yes</span></td>
+    <td>
+      <span style="color: var(--muted);">—</span>
+    </td>
+    <td>—</td>
+    <td>
+      —
+    </td>
+  </tr>
+  <tr>
+    <td>19</td>
+    <td style="font-size:0.85em;"><code class="indicator">weaplink.com</code></td>
+    <td>ip</td>
+    <td><code class="indicator">193.143.1.59</code></td>
+    <td style="font-size:0.85em;">weaplink.com (seed) → 193.143.1.59 (hosted IP)</td>
+    <td>
+        <span class="badge badge-suspicious">CLOSE &middot; 1 hop</span>
+    </td>
+    <td style="font-size:0.85em;"></td>
+    <td><span class="badge badge-feed">Yes</span></td>
+    <td>
+      <span style="color: var(--muted);">—</span>
+    </td>
+    <td>—</td>
+    <td>
+      —
+    </td>
+  </tr>
+  </tbody>
+</table>
+</div>
+</details>
+
+<details style="margin-top:16px;">
+  <summary style="cursor:pointer;font-weight:600;margin-bottom:8px;font-size:0.9rem;color:var(--muted, #6c757d);">How Proximity Is Calculated</summary>
+  <div style="font-size:0.85rem;color:var(--text);line-height:1.6;padding:12px 16px;background:var(--card-bg, #fff);border:1px solid var(--border, #e0e0e0);border-radius:8px;margin-top:8px;">
+    <p style="margin:0 0 8px;">Every indicator is traced back to the closest seed along the minimum-cost chain of pivots. Each hop contributes a <strong>base cost</strong> reflecting link confidence; positional and predecessor adjustments then shape the final <strong>weighted distance</strong> <em>w</em>.</p>
+
+    <p style="margin:8px 0 4px;"><strong>1. Base hop costs</strong> (lower = stronger link):</p>
+    <table style="font-size:0.85rem;border-collapse:collapse;margin:4px 0 8px;">
+      <tr><td style="padding:2px 12px 2px 0;font-weight:600;white-space:nowrap;">Strong (1.0)</td><td>WHOIS email match, dedicated reverse DNS, cert serial match, co-hosted on same IP, subdomain, exact repo match, cluster (domain / email)</td></tr>
+      <tr><td style="padding:2px 12px 2px 0;font-weight:600;white-space:nowrap;">Moderate (1.2–1.5)</td><td>DNS A/AAAA (1.2), infra pivot (1.2), repo subdomain (1.3), CNAME (1.5), cert CN (1.5), redirect (1.5), hosted IP (1.5), subdomain co-hosted (1.5), repo subnet / co-occurrence (1.5)</td></tr>
+      <tr><td style="padding:2px 12px 2px 0;font-weight:600;white-space:nowrap;">Weak (2.0+)</td><td>HTML reference (2.0), unknown hop (2.0), shared reverse DNS (2.5), cluster via IP (2.5)</td></tr>
+    </table>
+
+    <p style="margin:8px 0 4px;"><strong>2. Positional amplification</strong> — later hops in a chain cost more (the &ldquo;telephone effect&rdquo;). Base cost at hop position <em>k</em> (0-indexed, counted from the seed) is multiplied by:</p>
+    <table style="font-size:0.85rem;border-collapse:collapse;margin:4px 0 8px;">
+      <tr style="font-weight:600;"><td style="padding:2px 10px 2px 0;">Position</td><td style="padding:2px 10px;">0</td><td style="padding:2px 10px;">1</td><td style="padding:2px 10px;">2</td><td style="padding:2px 10px;">3</td><td style="padding:2px 10px;">4+</td></tr>
+      <tr><td style="padding:2px 10px 2px 0;font-weight:600;">Multiplier</td><td style="padding:2px 10px;">1.00×</td><td style="padding:2px 10px;">1.05×</td><td style="padding:2px 10px;">1.20×</td><td style="padding:2px 10px;">1.45×</td><td style="padding:2px 10px;">1.75×</td></tr>
+    </table>
+
+    <p style="margin:8px 0 4px;"><strong>3. Predecessor bump</strong> — if the preceding hop was weak-class (base cost ≥ 2.0, e.g. shared reverse DNS or HTML reference), the current hop&rsquo;s cost is multiplied by <strong>1.2×</strong>. This captures the intuition that a pivot chained off a noisy predecessor is itself less trustworthy.</p>
+
+    <p style="margin:8px 0 4px;"><strong>4. Path selection &amp; normalization</strong> — when multiple pivot chains lead to the same indicator, the chain with the lowest weighted cost wins. The raw <em>w</em> is then mapped into <strong>pivot distance <em>D</em> ∈ [0, 1]</strong>:</p>
+    <p style="margin:4px 0 8px;padding-left:16px;"><code>D = 1 − e<sup>−0.3 · max(0, w − 0.7)</sup></code></p>
+    <p style="margin:0 0 8px;padding-left:16px;color:var(--muted, #6c757d);font-style:italic;">The 0.7 floor means a single strong pivot (w ≈ 1.0) reads as &ldquo;very close&rdquo; rather than being penalized; the exponential beyond that keeps medium and long chains well-separated.</p>
+
+    <p style="margin:8px 0 4px;"><strong>5. Proximity bands</strong> are derived from <em>D</em>:</p>
+    <table style="font-size:0.85rem;border-collapse:collapse;margin:4px 0 8px;">
+      <tr><td style="padding:2px 12px 2px 0;"><span class="badge badge-feed">DIRECT</span></td><td>indicator is a seed (0 hops)</td></tr>
+      <tr><td style="padding:2px 12px 2px 0;"><span class="badge badge-malicious">VERY CLOSE</span></td><td>D ≤ 0.15</td></tr>
+      <tr><td style="padding:2px 12px 2px 0;"><span class="badge badge-suspicious">CLOSE</span></td><td>0.15 &lt; D ≤ 0.35</td></tr>
+      <tr><td style="padding:2px 12px 2px 0;"><span class="badge badge-repo">MODERATE</span></td><td>0.35 &lt; D ≤ 0.55</td></tr>
+      <tr><td style="padding:2px 12px 2px 0;"><span class="badge badge-unknown">DISTANT</span></td><td>0.55 &lt; D ≤ 0.75</td></tr>
+      <tr><td style="padding:2px 12px 2px 0;"><span class="badge badge-unknown" style="opacity:0.7;">VERY DISTANT</span></td><td>D &gt; 0.75</td></tr>
+    </table>
+
+    <p style="margin:8px 0 0;font-style:italic;color:var(--muted, #6c757d);">Example: seed <code>evil.com</code> → DNS A (position 0, 1.2 × 1.00 = 1.2) → <code>1.2.3.4</code> → co-hosted (position 1, 1.0 × 1.05 = 1.05) → <code>target.com</code>. Weighted distance <em>w</em> = 2.25, <em>D</em> = 1 − e<sup>−0.3·1.55</sup> ≈ 0.37 → <strong>Moderate</strong>.</p>
+  </div>
+</details>
+
+<h2>4. APT Attribution (beta)</h2>
+<div class="apt-card">
+  <h4>TEMP.Zagros (Iran)</h4>
+<p><strong>Aliases:</strong> MuddyWater, Seedworm, Static Kitten, MERCURY, Earth Vetala</p><p>TEMP.Zagros is an Iran-linked intrusion set commonly associated with espionage operations against government, telecom, education, and regional organizations. Public reporting often overlaps it with MuddyWater/Seedworm-style activity.</p>  <p><strong>Confidence:</strong>
+    <span class="badge badge-suspicious">62.15%</span>
+    (source: malanta_api, 1 records)
+  </p>
+  <p><strong>Indicators:</strong></p>
+  <div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:8px;">
+    <span style="display:inline-flex;align-items:center;gap:4px;background:#f5f5f5;border:1px solid #ddd;border-radius:4px;padding:2px 8px;font-size:0.9em;">
+      <code>serialmenot.com</code>
+      <span class="badge badge-malicious" style="font-size:0.75em;">Seed</span>
+    </span>
+  </div>
+<div><strong>Known TTPs:</strong> <ul>
+<li>Spearphishing with malicious documents and links.</li>
+<li>PowerShell backdoors and script-based loaders.</li>
+<li>Abuse of legitimate admin and RMM tools.</li>
+<li>Web shells and staged C2 infrastructure.</li>
+<li>Targeting Middle East and regional government entities.</li>
+</ul></div>  <div><strong>Rationale:</strong> <ul>
+<li>serialmenot.com — Malanta DB lists this Seed under “Seed indicators linked to this APT”; direct TEMP.Zagros attribution anchor.</li>
+<li>aeeracaspsl.site — submitted seed, but no provided evidence directly maps it to TEMP.Zagros; linkage is not independently demonstrated.</li>
+<li>178.16.52.191 — repo search matched nearby 178.16.52.53/.91-.95 in Gandalf Sliver C2 lists, but not TEMP.Zagros-specific.</li>
+<li>193.24.123.25 — repo search matched 193.24.123.84 in validin-phish-feed and .196 in Sliver C2 lists; no TEMP.Zagros tag shown.</li>
+<li>192.109.200.151 — repo search matched 192.109.200.0/24 in risjsnx/lmms.io block-aeza.conf; infrastructure-abuse context only.</li>
+</ul></div>
+</div>
+<div class="apt-card">
+  <h4>Shuckworm (Russia)</h4>
+<p><strong>Aliases:</strong> Gamaredon, Armageddon, Primitive Bear, ACTINIUM, Trident Ursa</p><p>Shuckworm is a Russia-linked espionage group widely associated with operations against Ukrainian government, defense, and critical-sector targets. It is known for rapid infrastructure rotation and phishing-led access operations.</p>  <p><strong>Confidence:</strong>
+    <span class="badge badge-suspicious">62.15%</span>
+    (source: malanta_api, 1 records)
+  </p>
+  <p><strong>Indicators:</strong></p>
+  <div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:8px;">
+    <span style="display:inline-flex;align-items:center;gap:4px;background:#f5f5f5;border:1px solid #ddd;border-radius:4px;padding:2px 8px;font-size:0.9em;">
+      <code>140.82.18.48</code>
+      <span class="badge badge-malicious" style="font-size:0.75em;">Seed</span>
+    </span>
+  </div>
+<p style="overflow-wrap:break-word;"><strong>Associated IPs (1):</strong> <code>140.82.18.48</code></p><div><strong>Known TTPs:</strong> <ul>
+<li>Spearphishing with malicious attachments or links</li>
+<li>Dynamic DNS and disposable domain infrastructure</li>
+<li>PowerShell, VBScript, and batch-based execution</li>
+<li>Frequent C2 and payload infrastructure rotation</li>
+<li>Credential theft and persistent remote access</li>
+</ul></div>  <div><strong>Rationale:</strong> <ul>
+<li><code>140.82.18.48</code> is explicitly listed by Malanta as a <code>Seed</code> indicator linked to Shuckworm.</li>
+<li>Malanta reports exactly one Shuckworm match, with <code>Associated IPs: 140.82.18.48</code>, making this the direct attribution anchor.</li>
+<li>The provided seed domains do not themselves appear in the Shuckworm match; attribution depends on the discovered/seed IP <code>140.82.18.48</code>.</li>
+<li>Repository hits for <code>178.16.52.191</code>, <code>193.24.123.25</code>, <code>45.135.180.200</code>, and others show generic C2/proxy context, not direct Shuckworm linkage.</li>
+</ul></div>
+</div>
+
+<h2>5. MITRE ATT&amp;CK Mapping</h2>
+<p><strong>Pre-Attack mapping</strong></p>
+<h4 style="margin-bottom:0.3rem;">Resource Development (TA0042)</h4>
+<table style="font-size:0.9rem;">
+  <thead><tr><th style="width:15%;">Technique</th><th>Name</th></tr></thead>
+  <tbody>
+  <tr>
+    <td><a href="https://attack.mitre.org/techniques/T1583/001/" target="_blank" rel="noopener noreferrer"><strong>T1583.001</strong></a></td>
+    <td>Acquire Infrastructure: Domains</td>
+  </tr>
+  </tbody>
+</table>
+
+
+</body>
+</html>
